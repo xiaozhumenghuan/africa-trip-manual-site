@@ -1,0 +1,2784 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#f2f5f0">
+  <meta name="color-scheme" content="light dark">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23087f6b'/%3E%3Cpath d='M14 40c12-3 20-10 25-22 4 15 11 23 13 30' fill='none' stroke='%23fff' stroke-width='5' stroke-linecap='round'/%3E%3C/svg%3E">
+  <title>非洲双人之旅｜2026.09.17 - 10.11</title>
+  <style>
+    :root {
+      --bg: #f2f5f0;
+      --surface: #ffffff;
+      --surface-soft: #edf1eb;
+      --ink: #17231f;
+      --muted: #5f6f68;
+      --line: #ccd6cf;
+      --line-strong: #9eafa5;
+      --accent: #087f6b;
+      --accent-strong: #006653;
+      --accent-soft: #d9eee8;
+      --warning: #a3411a;
+      --warning-soft: #fbe6db;
+      --pending: #7a4f00;
+      --pending-soft: #f8e9c7;
+      --confirmed: #17643d;
+      --confirmed-soft: #dcefe2;
+      --flight: #365f95;
+      --flight-soft: #dfe9f6;
+      --shadow: 0 18px 50px rgba(31, 54, 45, 0.10);
+      --radius: 16px;
+      --radius-small: 10px;
+      --content: 1180px;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+      --sans: "PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC", "Segoe UI", sans-serif;
+      --serif: "Songti SC", "STSong", "Noto Serif CJK SC", Georgia, serif;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #111a17;
+        --surface: #18241f;
+        --surface-soft: #202e28;
+        --ink: #edf5ef;
+        --muted: #a8b8b0;
+        --line: #344840;
+        --line-strong: #587067;
+        --accent: #55c9b2;
+        --accent-strong: #83ddca;
+        --accent-soft: #173e35;
+        --warning: #ff9d76;
+        --warning-soft: #44251b;
+        --pending: #f2c96f;
+        --pending-soft: #413719;
+        --confirmed: #83d69e;
+        --confirmed-soft: #1b3d27;
+        --flight: #93b8ef;
+        --flight-soft: #1c304a;
+        --shadow: 0 22px 60px rgba(0, 0, 0, 0.30);
+      }
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background: var(--bg);
+    }
+
+    body {
+      margin: 0;
+      min-width: 320px;
+      color: var(--ink);
+      background: var(--bg);
+      font-family: var(--sans);
+      line-height: 1.62;
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 3px;
+    }
+
+    button,
+    summary {
+      font: inherit;
+    }
+
+    button,
+    a,
+    summary {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    button:focus-visible,
+    a:focus-visible,
+    summary:focus-visible {
+      outline: 3px solid color-mix(in srgb, var(--accent) 50%, transparent);
+      outline-offset: 3px;
+    }
+
+    .page {
+      width: min(100%, var(--content));
+      margin: 0 auto;
+      padding: 18px 18px 64px;
+    }
+
+    .hero {
+      padding: 24px 0 8px;
+    }
+
+    .hero-heading {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 24px;
+      align-items: end;
+      margin-bottom: 18px;
+    }
+
+    .eyebrow {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+      margin-bottom: 8px;
+      color: var(--accent-strong);
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0;
+      max-width: 720px;
+      font-family: var(--serif);
+      font-size: clamp(2.15rem, 7vw, 4.8rem);
+      font-weight: 800;
+      letter-spacing: 0;
+      line-height: 1.04;
+    }
+
+    .hero-subtitle {
+      max-width: 760px;
+      margin: 12px 0 0;
+      color: var(--muted);
+      font-size: clamp(0.96rem, 2.2vw, 1.08rem);
+    }
+
+    .trip-stamp {
+      display: grid;
+      width: 132px;
+      height: 132px;
+      place-items: center;
+      border: 2px solid var(--accent);
+      border-radius: 50%;
+      color: var(--accent-strong);
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      font-weight: 800;
+      line-height: 1.35;
+      text-align: center;
+      transform: rotate(4deg);
+    }
+
+    .next-panel {
+      position: relative;
+      overflow: hidden;
+      padding: clamp(22px, 4vw, 38px);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--surface);
+      box-shadow: var(--shadow);
+    }
+
+    .next-grid {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(300px, 0.8fr);
+      gap: 28px;
+      align-items: center;
+    }
+
+    .section-kicker {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      margin: 0 0 8px;
+      color: var(--accent-strong);
+      font-size: 0.8rem;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+    }
+
+    .next-title {
+      margin: 0;
+      font-family: var(--serif);
+      font-size: clamp(1.7rem, 4vw, 2.65rem);
+      line-height: 1.16;
+    }
+
+    .next-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 14px;
+      margin: 12px 0 0;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .next-meta span {
+      display: inline-flex;
+      gap: 6px;
+      align-items: center;
+    }
+
+    .countdown {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 8px;
+    }
+
+    .count-unit {
+      min-width: 0;
+      padding: 14px 8px 12px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-small);
+      background: var(--surface-soft);
+      text-align: center;
+    }
+
+    .count-value {
+      display: block;
+      font-family: var(--mono);
+      font-size: clamp(1.65rem, 5vw, 2.75rem);
+      font-variant-numeric: tabular-nums;
+      font-weight: 800;
+      line-height: 1;
+    }
+
+    .count-label {
+      display: block;
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+    }
+
+    .current-clock {
+      margin: 14px 0 0;
+      color: var(--muted);
+      font-family: var(--mono);
+      font-size: 0.78rem;
+      text-align: right;
+    }
+
+    .risk-strip {
+      display: grid;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .risk-item {
+      display: grid;
+      grid-template-columns: auto minmax(0, 1fr);
+      gap: 10px;
+      align-items: start;
+      padding: 12px 14px;
+      border-left: 4px solid var(--warning);
+      border-radius: 0 var(--radius-small) var(--radius-small) 0;
+      background: var(--warning-soft);
+      color: var(--ink);
+      font-size: 0.88rem;
+    }
+
+    .risk-item strong {
+      display: block;
+      margin-bottom: 2px;
+      color: var(--warning);
+    }
+
+    .risk-icon {
+      width: 20px;
+      height: 20px;
+      margin-top: 2px;
+      color: var(--warning);
+    }
+
+    .quick-nav {
+      position: sticky;
+      z-index: 20;
+      top: 0;
+      display: flex;
+      gap: 8px;
+      padding: 10px 0;
+      overflow-x: auto;
+      background: color-mix(in srgb, var(--bg) 90%, transparent);
+      backdrop-filter: blur(14px);
+      scrollbar-width: none;
+    }
+
+    .quick-nav::-webkit-scrollbar {
+      display: none;
+    }
+
+    .quick-nav a {
+      flex: 0 0 auto;
+      padding: 8px 12px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: var(--surface);
+      color: var(--muted);
+      font-size: 0.8rem;
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    main {
+      display: grid;
+      gap: 34px;
+      margin-top: 10px;
+    }
+
+    .section {
+      scroll-margin-top: 72px;
+    }
+
+    .section-head {
+      display: flex;
+      gap: 18px;
+      align-items: end;
+      justify-content: space-between;
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .section-head h2 {
+      margin: 0;
+      font-family: var(--serif);
+      font-size: clamp(1.65rem, 4vw, 2.55rem);
+      line-height: 1.14;
+    }
+
+    .section-head p {
+      max-width: 590px;
+      margin: 6px 0 0;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .section-index {
+      flex: 0 0 auto;
+      color: var(--accent-strong);
+      font-family: var(--mono);
+      font-size: 0.82rem;
+      font-weight: 800;
+    }
+
+    .map-shell {
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--surface);
+      box-shadow: var(--shadow);
+    }
+
+    .world-route {
+      padding: 18px 20px 4px;
+      border-bottom: 1px solid var(--line);
+      background: var(--surface-soft);
+    }
+
+    .world-route svg {
+      display: block;
+      width: 100%;
+      height: auto;
+      max-height: 230px;
+    }
+
+    .world-route text {
+      fill: var(--ink);
+      font-family: var(--sans);
+      font-size: 18px;
+      font-weight: 800;
+    }
+
+    .world-route .world-caption {
+      fill: var(--muted);
+      font-family: var(--mono);
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .route-node {
+      fill: var(--surface);
+      stroke: var(--accent);
+      stroke-width: 5;
+    }
+
+    .route-path {
+      fill: none;
+      stroke: var(--accent);
+      stroke-width: 5;
+      stroke-linecap: round;
+      stroke-dasharray: 14 10;
+    }
+
+    .overview-wrap {
+      padding: 18px 20px 20px;
+    }
+
+    .overview-map {
+      width: 100%;
+      overflow: hidden;
+      border-radius: 12px;
+      background: var(--surface-soft);
+    }
+
+    .overview-map svg {
+      display: block;
+      width: 100%;
+      min-height: 330px;
+      height: auto;
+    }
+
+    .overview-map text {
+      fill: var(--ink);
+      font-family: var(--sans);
+      font-size: 12px;
+      font-weight: 800;
+      paint-order: stroke;
+      stroke: var(--surface-soft);
+      stroke-linejoin: round;
+      stroke-width: 4px;
+    }
+
+    .overview-map .tiny-label {
+      fill: var(--muted);
+      font-family: var(--mono);
+      font-size: 10px;
+      font-weight: 700;
+    }
+
+    .rough-shape {
+      fill: color-mix(in srgb, var(--accent-soft) 65%, var(--surface));
+      stroke: var(--line-strong);
+      stroke-width: 3;
+      stroke-linejoin: round;
+      filter: url(#rough);
+    }
+
+    .overview-route {
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-width: 4;
+      opacity: 0.8;
+    }
+
+    .stay-marker {
+      stroke: var(--surface);
+      stroke-width: 3;
+    }
+
+    .stay-strip {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 8px;
+      margin-top: 16px;
+    }
+
+    .stay-item {
+      display: grid;
+      grid-template-columns: auto minmax(0, 1fr);
+      gap: 10px;
+      align-items: start;
+      min-width: 0;
+      padding: 10px 12px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-small);
+      background: var(--surface);
+    }
+
+    .stay-day {
+      min-width: 46px;
+      color: var(--muted);
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      font-weight: 800;
+    }
+
+    .stay-name {
+      display: block;
+      font-size: 0.84rem;
+      font-weight: 800;
+      line-height: 1.38;
+    }
+
+    .stay-note {
+      display: block;
+      margin-top: 2px;
+      color: var(--muted);
+      font-size: 0.74rem;
+    }
+
+    .booking-grid {
+      display: grid;
+      gap: 12px;
+    }
+
+    .booking-group {
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--surface);
+    }
+
+    .booking-group h3 {
+      display: flex;
+      gap: 9px;
+      align-items: center;
+      margin: 0 0 12px;
+      font-size: 1rem;
+    }
+
+    .booking-list {
+      display: grid;
+      gap: 10px;
+    }
+
+    .booking {
+      display: grid;
+      grid-template-columns: auto minmax(0, 1fr) auto;
+      gap: 12px;
+      align-items: start;
+      padding: 13px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-small);
+      background: var(--surface-soft);
+    }
+
+    .booking-icon {
+      display: grid;
+      width: 36px;
+      height: 36px;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--surface);
+      color: var(--accent-strong);
+    }
+
+    .booking-icon svg {
+      width: 19px;
+      height: 19px;
+    }
+
+    .booking-title {
+      margin: 0;
+      font-size: 0.96rem;
+      line-height: 1.35;
+    }
+
+    .booking-lines {
+      display: grid;
+      gap: 4px;
+      margin-top: 7px;
+      color: var(--muted);
+      font-size: 0.82rem;
+    }
+
+    .booking-lines strong {
+      color: var(--ink);
+    }
+
+    .booking-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      justify-content: flex-end;
+    }
+
+    .status {
+      display: inline-flex;
+      align-items: center;
+      min-height: 27px;
+      padding: 4px 8px;
+      border-radius: 999px;
+      font-size: 0.7rem;
+      font-weight: 900;
+      line-height: 1.2;
+      white-space: nowrap;
+    }
+
+    .status.confirmed {
+      background: var(--confirmed-soft);
+      color: var(--confirmed);
+    }
+
+    .status.pending {
+      background: var(--pending-soft);
+      color: var(--pending);
+    }
+
+    .status.flight {
+      background: var(--flight-soft);
+      color: var(--flight);
+    }
+
+    .action-link {
+      display: inline-flex;
+      min-height: 34px;
+      gap: 6px;
+      align-items: center;
+      justify-content: center;
+      padding: 6px 9px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--surface);
+      color: var(--accent-strong);
+      font-size: 0.76rem;
+      font-weight: 900;
+      text-decoration: none;
+    }
+
+    .action-link svg {
+      width: 15px;
+      height: 15px;
+    }
+
+    .booking-footnote {
+      margin: 10px 0 0;
+      color: var(--muted);
+      font-size: 0.78rem;
+    }
+
+    .timeline {
+      position: relative;
+      display: grid;
+      gap: 14px;
+    }
+
+    .timeline::before {
+      position: absolute;
+      top: 12px;
+      bottom: 12px;
+      left: 80px;
+      width: 2px;
+      background: var(--line);
+      content: "";
+    }
+
+    .day {
+      position: relative;
+      display: grid;
+      grid-template-columns: 82px minmax(0, 1fr);
+      gap: 18px;
+    }
+
+    .day-date {
+      position: relative;
+      z-index: 1;
+      padding-top: 19px;
+      color: var(--muted);
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      font-weight: 800;
+      line-height: 1.35;
+      text-align: right;
+    }
+
+    .day-date strong {
+      display: block;
+      color: var(--ink);
+      font-size: 0.9rem;
+    }
+
+    .day-card {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--surface);
+      box-shadow: 0 7px 22px rgba(31, 54, 45, 0.05);
+    }
+
+    .day-card[open] {
+      border-color: var(--line-strong);
+    }
+
+    .day-summary {
+      position: relative;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 12px;
+      align-items: center;
+      padding: 18px 18px 17px;
+      cursor: pointer;
+      list-style: none;
+    }
+
+    .day-summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .day-title {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+      margin: 0;
+      font-family: var(--serif);
+      font-size: clamp(1.08rem, 2.6vw, 1.45rem);
+      line-height: 1.28;
+    }
+
+    .day-title::before {
+      width: 10px;
+      height: 10px;
+      flex: 0 0 auto;
+      border-radius: 50%;
+      background: var(--day-color, var(--accent));
+      box-shadow: 0 0 0 4px color-mix(in srgb, var(--day-color, var(--accent)) 17%, transparent);
+      content: "";
+    }
+
+    .day-summary-copy {
+      padding-left: 18px;
+      color: var(--muted);
+      font-size: 0.83rem;
+    }
+
+    .day-expand {
+      display: inline-flex;
+      width: 34px;
+      height: 34px;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--line);
+      border-radius: 50%;
+      background: var(--surface-soft);
+      color: var(--muted);
+      transition: transform 180ms ease;
+    }
+
+    .day-expand svg {
+      width: 17px;
+      height: 17px;
+    }
+
+    .day-card[open] .day-expand {
+      transform: rotate(180deg);
+    }
+
+    .day-body {
+      padding: 0 18px 18px;
+    }
+
+    .day-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin: 0 0 14px 18px;
+    }
+
+    .tag {
+      display: inline-flex;
+      min-height: 26px;
+      align-items: center;
+      padding: 4px 8px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: var(--surface-soft);
+      color: var(--muted);
+      font-size: 0.7rem;
+      font-weight: 800;
+    }
+
+    .tag.warn {
+      border-color: color-mix(in srgb, var(--warning) 40%, var(--line));
+      background: var(--warning-soft);
+      color: var(--warning);
+    }
+
+    .tag.booking {
+      border-color: color-mix(in srgb, var(--pending) 35%, var(--line));
+      background: var(--pending-soft);
+      color: var(--pending);
+    }
+
+    .schedule {
+      display: grid;
+      gap: 0;
+      margin-bottom: 16px;
+    }
+
+    .schedule-row {
+      display: grid;
+      grid-template-columns: 92px minmax(0, 1fr);
+      gap: 14px;
+      padding: 12px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .schedule-row:first-child {
+      border-top: 0;
+    }
+
+    .schedule-time {
+      color: var(--accent-strong);
+      font-family: var(--mono);
+      font-size: 0.76rem;
+      font-weight: 900;
+      line-height: 1.45;
+    }
+
+    .schedule-time small {
+      display: block;
+      color: var(--muted);
+      font-size: 0.65rem;
+      font-weight: 700;
+    }
+
+    .schedule-title {
+      margin: 0;
+      font-size: 0.94rem;
+      font-weight: 900;
+      line-height: 1.4;
+    }
+
+    .schedule-detail {
+      margin: 3px 0 0;
+      color: var(--muted);
+      font-size: 0.82rem;
+    }
+
+    .place-link {
+      color: var(--accent-strong);
+      font-weight: 800;
+      text-decoration: underline;
+      text-decoration-style: dotted;
+    }
+
+    .route-details {
+      margin-top: 15px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: var(--surface-soft);
+    }
+
+    .route-details summary {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      padding: 11px 12px;
+      color: var(--accent-strong);
+      font-size: 0.8rem;
+      font-weight: 900;
+      cursor: pointer;
+      list-style: none;
+    }
+
+    .route-details summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .route-details summary svg {
+      width: 16px;
+      height: 16px;
+    }
+
+    .route-content {
+      padding: 0 12px 12px;
+    }
+
+    .mini-map {
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 9px;
+      background: var(--surface);
+    }
+
+    .mini-map svg {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .mini-map text {
+      fill: var(--ink);
+      font-family: var(--sans);
+      font-size: 12px;
+      font-weight: 800;
+      paint-order: stroke;
+      stroke: var(--surface);
+      stroke-linejoin: round;
+      stroke-width: 4px;
+    }
+
+    .mini-map .mini-code {
+      fill: var(--muted);
+      font-family: var(--mono);
+      font-size: 10px;
+    }
+
+    .mini-route-shadow {
+      fill: none;
+      stroke: var(--line-strong);
+      stroke-width: 9;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      opacity: 0.35;
+    }
+
+    .mini-route {
+      fill: none;
+      stroke: var(--day-color, var(--accent));
+      stroke-width: 4;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .nav-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin-top: 9px;
+    }
+
+    .nav-button {
+      display: inline-flex;
+      min-height: 38px;
+      gap: 7px;
+      align-items: center;
+      justify-content: center;
+      padding: 8px 11px;
+      border: 1px solid var(--accent);
+      border-radius: 8px;
+      background: var(--accent);
+      color: #fff;
+      font-size: 0.78rem;
+      font-weight: 900;
+      text-decoration: none;
+    }
+
+    .nav-button.secondary {
+      background: var(--surface);
+      color: var(--accent-strong);
+    }
+
+    .nav-button svg {
+      width: 16px;
+      height: 16px;
+    }
+
+    .day-notes {
+      display: grid;
+      gap: 8px;
+      margin-top: 15px;
+    }
+
+    .day-note {
+      display: grid;
+      grid-template-columns: auto minmax(0, 1fr);
+      gap: 8px;
+      padding: 10px 11px;
+      border-left: 3px solid var(--line-strong);
+      background: var(--surface-soft);
+      color: var(--muted);
+      font-size: 0.79rem;
+    }
+
+    .day-note.warn {
+      border-left-color: var(--warning);
+      background: var(--warning-soft);
+      color: var(--ink);
+    }
+
+    .day-note svg {
+      width: 16px;
+      height: 16px;
+      margin-top: 3px;
+      color: var(--accent-strong);
+    }
+
+    .day-note.warn svg {
+      color: var(--warning);
+    }
+
+    .todo-panel {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--surface);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .todo-intro {
+      padding: 18px;
+      border-bottom: 1px solid var(--line);
+      background: var(--pending-soft);
+      color: var(--ink);
+      font-size: 0.88rem;
+    }
+
+    .todo-list {
+      display: grid;
+      gap: 0;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      counter-reset: todo;
+    }
+
+    .todo-list li {
+      position: relative;
+      display: grid;
+      grid-template-columns: auto minmax(0, 1fr);
+      gap: 12px;
+      padding: 15px 18px;
+      border-top: 1px solid var(--line);
+    }
+
+    .todo-list li:first-child {
+      border-top: 0;
+    }
+
+    .todo-list li::before {
+      display: grid;
+      width: 28px;
+      height: 28px;
+      place-items: center;
+      border: 1px solid var(--line-strong);
+      border-radius: 50%;
+      color: var(--muted);
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      font-weight: 900;
+      content: counter(todo, decimal-leading-zero);
+      counter-increment: todo;
+    }
+
+    .todo-title {
+      display: block;
+      font-weight: 900;
+      line-height: 1.4;
+    }
+
+    .todo-detail {
+      display: block;
+      margin-top: 3px;
+      color: var(--muted);
+      font-size: 0.81rem;
+    }
+
+    .todo-priority {
+      display: inline-flex;
+      margin-left: 6px;
+      padding: 2px 6px;
+      border-radius: 999px;
+      background: var(--warning-soft);
+      color: var(--warning);
+      font-size: 0.66rem;
+      font-weight: 900;
+      vertical-align: 1px;
+    }
+
+    .tips-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .tip-block {
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--surface);
+    }
+
+    .tip-block h3 {
+      margin: 0 0 10px;
+      font-size: 1rem;
+    }
+
+    .tip-block ul {
+      display: grid;
+      gap: 7px;
+      margin: 0;
+      padding-left: 1.15rem;
+      color: var(--muted);
+      font-size: 0.83rem;
+    }
+
+    .tip-block strong {
+      color: var(--ink);
+    }
+
+    footer {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 16px;
+      justify-content: space-between;
+      margin-top: 34px;
+      padding: 18px 0 0;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 0.75rem;
+    }
+
+    .no-script {
+      margin: 20px 0;
+      padding: 14px;
+      border: 1px solid var(--warning);
+      background: var(--warning-soft);
+      color: var(--ink);
+    }
+
+    @media (max-width: 900px) {
+      .hero-heading {
+        grid-template-columns: 1fr;
+      }
+
+      .trip-stamp {
+        display: none;
+      }
+
+      .next-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .current-clock {
+        text-align: left;
+      }
+
+      .booking {
+        grid-template-columns: auto minmax(0, 1fr);
+      }
+
+      .booking-actions {
+        grid-column: 2;
+        justify-content: flex-start;
+      }
+    }
+
+    @media (max-width: 680px) {
+      .page {
+        padding: 10px 12px 48px;
+      }
+
+      .hero {
+        padding-top: 14px;
+      }
+
+      .next-panel {
+        padding: 20px 16px;
+      }
+
+      .countdown {
+        gap: 5px;
+      }
+
+      .count-unit {
+        padding: 12px 4px 10px;
+      }
+
+      .quick-nav {
+        margin-inline: -12px;
+        padding-inline: 12px;
+      }
+
+      .section-head {
+        align-items: start;
+      }
+
+      .section-index {
+        padding-top: 5px;
+      }
+
+      .world-route,
+      .overview-wrap {
+        padding-inline: 12px;
+      }
+
+      .overview-map svg {
+        min-height: 280px;
+      }
+
+      .timeline::before {
+        display: none;
+      }
+
+      .timeline {
+        gap: 12px;
+      }
+
+      .day {
+        grid-template-columns: 1fr;
+        gap: 7px;
+      }
+
+      .day-date {
+        display: flex;
+        gap: 8px;
+        align-items: baseline;
+        padding: 0 3px;
+        text-align: left;
+      }
+
+      .day-date strong {
+        display: inline;
+      }
+
+      .day-summary {
+        grid-template-columns: minmax(0, 1fr) auto;
+        padding: 15px 14px;
+      }
+
+      .day-summary-copy {
+        grid-column: 1 / -1;
+        padding-left: 18px;
+      }
+
+      .day-body {
+        padding: 0 14px 15px;
+      }
+
+      .day-tags {
+        margin-left: 18px;
+      }
+
+      .schedule-row {
+        grid-template-columns: 76px minmax(0, 1fr);
+        gap: 10px;
+      }
+
+      .tips-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .booking-group {
+        padding: 14px;
+      }
+
+      .booking {
+        grid-template-columns: 1fr;
+      }
+
+      .booking-icon {
+        width: 32px;
+        height: 32px;
+      }
+
+      .booking-actions {
+        grid-column: 1;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        transition-duration: 0.01ms !important;
+      }
+    }
+
+    @media print {
+      :root {
+        --bg: #fff;
+        --surface: #fff;
+        --surface-soft: #f6f6f6;
+        --ink: #111;
+        --muted: #444;
+        --line: #bbb;
+        --shadow: none;
+      }
+
+      .quick-nav,
+      .day-expand {
+        display: none;
+      }
+
+      .page {
+        width: 100%;
+        padding: 0;
+      }
+
+      .day-card,
+      .booking-group,
+      .map-shell,
+      .todo-panel {
+        break-inside: avoid;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header class="hero">
+      <div class="hero-heading">
+        <div>
+          <div class="eyebrow">G&J的旅行 · 肯尼亚 + 马达加斯加</div>
+          <h1>非洲漫游手册</h1>
+          <p class="hero-subtitle">从东非草原到马达加斯加雨林、石林与猴面包树。所有关键时间使用绝对时区记录，跨时区打开时会按同一时刻倒计时。</p>
+        </div>
+        <div class="trip-stamp" aria-label="25 天行程">25 DAYS<br>AFRICA<br>2026</div>
+      </div>
+
+      <section class="next-panel" aria-labelledby="next-title">
+        <div class="next-grid">
+          <div>
+            <p class="section-kicker">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="8"/><path d="M12 7v5l3 2"/></svg>
+              此刻关注
+            </p>
+            <h2 class="next-title" id="next-title">正在计算下一项行程</h2>
+            <div class="next-meta" id="next-meta"></div>
+          </div>
+          <div>
+            <div class="countdown" aria-live="polite">
+              <div class="count-unit"><span class="count-value" id="count-days">--</span><span class="count-label">天</span></div>
+              <div class="count-unit"><span class="count-value" id="count-hours">--</span><span class="count-label">时</span></div>
+              <div class="count-unit"><span class="count-value" id="count-minutes">--</span><span class="count-label">分</span></div>
+              <div class="count-unit"><span class="count-value" id="count-seconds">--</span><span class="count-label">秒</span></div>
+            </div>
+            <p class="current-clock" id="current-clock"></p>
+          </div>
+        </div>
+
+        <div class="risk-strip" aria-label="关键风险">
+          <div class="risk-item">
+            <svg class="risk-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 3 2.8 19h18.4L12 3Z"/><path d="M12 9v5"/><path d="M12 17h.01"/></svg>
+            <div><strong>返程时间已按最新截图校正。</strong>10 月 9 日 18:35 乘 EK708 从塔那那利佛出发，10 月 10 日 04:20 抵达迪拜 T3；随后从迪拜 T1 乘 6E1462 前往德里，再乘 6E1701 于 10 月 11 日 04:00 抵达广州。迪拜跨航站楼、重新托运行李和印度过境要求仍需最终确认。</div>
+          </div>
+        </div>
+      </section>
+
+      <nav class="quick-nav" aria-label="页面导航">
+        <a href="#map">行程地图</a>
+        <a href="#bookings">已确认预订</a>
+        <a href="#days">逐日行程</a>
+        <a href="#todo">待办清单</a>
+        <a href="#tips">实用贴士</a>
+      </nav>
+    </header>
+
+    <noscript><div class="no-script">此页面需要 JavaScript 来计算跨时区倒计时并展开每日地图。请开启浏览器 JavaScript。</div></noscript>
+
+    <main>
+      <section class="section" id="map">
+        <div class="section-head">
+          <div>
+            <h2>行程总览地图</h2>
+            <p>路线为手绘示意，地点与每晚住宿按当前总清单标出。点击地图节点或住宿卡片会直接打开 Google Maps 搜索。</p>
+          </div>
+          <div class="section-index">02 / MAP</div>
+        </div>
+        <div class="map-shell">
+          <div class="world-route">
+            <div id="world-route"></div>
+          </div>
+          <div class="overview-wrap">
+            <div class="overview-map" id="overview-map" aria-label="东非和马达加斯加行程示意图"></div>
+            <div class="stay-strip" id="stay-strip"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="bookings">
+        <div class="section-head">
+          <div>
+            <h2>已确认预订与票务</h2>
+            <p>只把已出票、已确认或明确包含在肯尼亚套餐中的项目放在这里。缺少的地址与电话不会被猜测填补。</p>
+          </div>
+          <div class="section-index">03 / BOOKINGS</div>
+        </div>
+        <div class="booking-grid" id="booking-grid"></div>
+      </section>
+
+      <section class="section" id="days">
+        <div class="section-head">
+          <div>
+            <h2>逐日行程</h2>
+            <p>时间按发生地时区显示。每日地图仅表示顺序，导航按钮会把当天可开车抵达的地点串成多段路线。</p>
+          </div>
+          <div class="section-index">04 / DAY BY DAY</div>
+        </div>
+        <div class="timeline" id="timeline"></div>
+      </section>
+
+      <section class="section" id="todo">
+        <div class="section-head">
+          <div>
+            <h2>待办清单</h2>
+            <p>这是只读列表，不使用浏览器本地勾选，确保两个人看到同一份状态。</p>
+          </div>
+          <div class="section-index">05 / TODO</div>
+        </div>
+        <div class="todo-panel">
+          <div class="todo-intro">完成一项后直接告诉更新者，页面内容会被修改并重新发布。当前最紧急的是返程票和两张线下长途车票。</div>
+          <ol class="todo-list" id="todo-list"></ol>
+        </div>
+      </section>
+
+      <section class="section" id="tips">
+        <div class="section-head">
+          <div>
+            <h2>实用贴士</h2>
+            <p>基于订单、确认单和总清单整理，不包含需要个人证件号、订单号或房间号的敏感信息。</p>
+          </div>
+          <div class="section-index">06 / FIELD NOTES</div>
+        </div>
+        <div class="tips-grid" id="tips-grid"></div>
+      </section>
+    </main>
+
+    <footer>
+      <span>公开只读旅行手册 · 2 位旅行者</span>
+      <span>所有可导航地点均使用发生当地时区</span>
+    </footer>
+  </div>
+
+  <script>
+    (() => {
+      "use strict";
+
+      const icons = {
+        alert: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 3 2.8 19h18.4L12 3Z"/><path d="M12 9v5"/><path d="M12 17h.01"/></svg>',
+        arrow: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>',
+        bed: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 19V7"/><path d="M3 12h18v7"/><path d="M7 9h5a3 3 0 0 1 3 3H7Z"/></svg>',
+        car: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m5 17-1-5 1.6-5h12.8L20 12l-1 5"/><path d="M4 12h16"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/></svg>',
+        flight: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m3 11 18-7-7 18-2.8-7.2L3 11Z"/><path d="m11.2 14.8 3.5-3.5"/></svg>',
+        map: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m9 18-6 3V6l6-3 6 3 6-3v15l-6 3-6-3Z"/><path d="M9 3v15"/><path d="M15 6v15"/></svg>',
+        nav: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m3 11 18-8-8 18-2-8-8-2Z"/></svg>',
+        phone: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.8 2.1Z"/></svg>',
+        ticket: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 9a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v1a2 2 0 0 0 0 4v1a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1a2 2 0 0 0 0-4Z"/><path d="M13 7v2"/><path d="M13 11v2"/><path d="M13 15v2"/></svg>',
+        route: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="6" cy="19" r="2"/><circle cx="18" cy="5" r="2"/><path d="M8 19h3a3 3 0 0 0 3-3V8a3 3 0 0 1 3-3"/></svg>',
+        info: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v6"/><path d="M12 7h.01"/></svg>'
+      };
+
+      const P = {
+        anyang: { name: "安阳东站", code: "ANY", lat: 36.099, lng: 114.397, q: "安阳东站" },
+        zzEast: { name: "郑州东站", code: "ZZE", lat: 34.757, lng: 113.773, q: "郑州东站" },
+        zzAirport: { name: "郑州新郑机场", code: "CGO", lat: 34.519, lng: 113.841, q: "郑州新郑国际机场" },
+        can: { name: "广州白云机场 T2", code: "CAN", lat: 23.392, lng: 113.299, q: "广州白云国际机场 T2" },
+        nbj: { name: "罗安达国际机场", code: "NBJ", lat: -8.858, lng: 13.231, q: "Quatro de Fevereiro Airport Luanda" },
+        nbo: { name: "内罗毕焦莫肯亚塔机场 T1B", code: "NBO", lat: -1.319, lng: 36.928, q: "Jomo Kenyatta International Airport Terminal 1B" },
+        yeza: { name: "Yeza Garden Hotel", code: "NBO", lat: -1.292, lng: 36.822, q: "Yeza Garden Hotel Nairobi" },
+        rift: { name: "东非大裂谷观景点", code: "RIFT", lat: -0.994, lng: 36.579, q: "Great Rift Valley View Point Mai Mahiu" },
+        mara: { name: "Mara Chui Lodge", code: "MARA", lat: -1.407, lng: 35.008, q: "Mara Chui Lodge Maasai Mara" },
+        maraVillage: { name: "马赛村", code: "VILL", lat: -1.42, lng: 35.03, q: "Maasai Village Maasai Mara" },
+        maraRiver: { name: "马拉河", code: "RIVER", lat: -1.405, lng: 35.011, q: "Mara River Maasai Mara" },
+        nakuru: { name: "纳库鲁湖国家公园", code: "LAKE", lat: -0.367, lng: 36.083, q: "Lake Nakuru National Park" },
+        merica: { name: "Merica Hotel", code: "NKR", lat: -0.283, lng: 36.066, q: "Merica Hotel Nakuru" },
+        elementaita: { name: "Jacaranda Lake Elementaita Lodge", code: "ELE", lat: -0.466, lng: 36.263, q: "Jacaranda Lake Elementaita Lodge" },
+        naivasha: { name: "奈瓦沙湖", code: "NAI", lat: -0.767, lng: 36.35, q: "Lake Naivasha Kenya" },
+        amboseli: { name: "安博塞利国家公园", code: "AMB", lat: -2.65, lng: 37.25, q: "Amboseli National Park" },
+        penety: { name: "Amboseli Penety Resort", code: "AMB", lat: -2.853, lng: 37.536, q: "Amboseli Penety Resort" },
+        add: { name: "亚的斯亚贝巴博莱机场", code: "ADD", lat: 8.977, lng: 38.799, q: "Bole International Airport Addis Ababa" },
+        ivato: { name: "塔那那利佛伊瓦图机场", code: "TNR", lat: -18.797, lng: 47.479, q: "Ivato International Airport Antananarivo" },
+        leChato: { name: "Le Chat'o Park Hôtel", code: "TNR", lat: -18.88, lng: 47.48, q: "Le Chat'o Park Hotel Antananarivo" },
+        soanala: { name: "Soanala Hotel & Restaurant", code: "AND", lat: -18.931, lng: 48.41, q: "Soanala Hotel & Restaurant Andasibe" },
+        peyrieras: { name: "蝴蝶谷 Peyrieras Reserve", code: "PEY", lat: -18.876, lng: 48.013, q: "Peyrieras Reserve Madagascar" },
+        analamazaotra: { name: "Analamazaotra 官方园", code: "ANP", lat: -18.934, lng: 48.42, q: "Analamazaotra Special Reserve Andasibe" },
+        lemurIsland: { name: "狐猴岛", code: "LEM", lat: -18.936, lng: 48.42, q: "Lemur Island Andasibe" },
+        crocodile: { name: "鳄鱼谷", code: "CROC", lat: -18.951, lng: 48.401, q: "Crocodile Farm Andasibe" },
+        mantadia: { name: "曼塔迪亚国家公园", code: "MNP", lat: -18.827, lng: 48.441, q: "Mantadia National Park Madagascar" },
+        manambato: { name: "Manambato 渡口", code: "BOAT", lat: -18.756, lng: 49.157, q: "Manambato Madagascar" },
+        palmarium: { name: "Palmarium Hotel Ankanin'Nofy", code: "PALM", lat: -18.658, lng: 49.433, q: "Palmarium Hotel Ankanin'Nofy" },
+        tana: { name: "塔那那利佛市区", code: "TNR", lat: -18.879, lng: 47.508, q: "Antananarivo city center" },
+        cotisse: { name: "Cotisse Analakely 售票处", code: "BUS", lat: -18.909, lng: 47.526, q: "Cotisse Transport Analakely Antananarivo" },
+        morondava: { name: "穆隆达瓦", code: "MOQ", lat: -20.285, lng: 44.318, q: "Morondava Madagascar" },
+        baobab: { name: "猴面包树大道", code: "BAOB", lat: -20.251, lng: 44.418, q: "Avenue of the Baobabs Madagascar" },
+        kirindy: { name: "Kirindy Mitea 国家公园", code: "KIR", lat: -20.067, lng: 44.65, q: "Kirindy Mitea National Park" },
+        bekopaka: { name: "Bekopaka", code: "BEK", lat: -19.139, lng: 44.814, q: "Bekopaka Madagascar" },
+        tsingy: { name: "贝马拉哈大石林", code: "TSI", lat: -19.135, lng: 44.819, q: "Tsingy de Bemaraha National Park" },
+        dubai: { name: "迪拜国际机场 T3/T1", code: "DXB", lat: 25.253, lng: 55.365, q: "Dubai International Airport" },
+        delhi: { name: "德里机场 T3", code: "DEL", lat: 28.556, lng: 77.1, q: "Indira Gandhi International Airport Terminal 3" }
+      };
+
+      const palette = [
+        "#d45636", "#e5792f", "#c6941c", "#7ca13d", "#2f9b77", "#2783a3",
+        "#4e70b5", "#765bb0", "#a34e8a", "#be4b55", "#d16a2a", "#9e7a1a",
+        "#5e9638", "#1d8c73", "#277a9e", "#496bad", "#7e55a6", "#9a4f82",
+        "#b24551", "#c75d2d", "#aa8018", "#6b8e39", "#25866e", "#356e9a", "#6955a1"
+      ];
+
+      const stays = [
+        { day: 1, date: "09.17", name: "广州白云机场 / 航班中", q: "广州白云国际机场 T2", note: "无酒店" },
+        { day: 2, date: "09.18", name: "Yeza Garden Hotel", q: "Yeza Garden Hotel Nairobi", note: "内罗毕" },
+        { day: 3, date: "09.19", name: "Mara Chui Lodge", q: "Mara Chui Lodge Maasai Mara", note: "马赛马拉" },
+        { day: 4, date: "09.20", name: "Mara Chui Lodge", q: "Mara Chui Lodge Maasai Mara", note: "马赛马拉" },
+        { day: 5, date: "09.21", name: "Mara Chui Lodge", q: "Mara Chui Lodge Maasai Mara", note: "马赛马拉" },
+        { day: 6, date: "09.22", name: "Merica Hotel", q: "Merica Hotel Nakuru", note: "纳库鲁" },
+        { day: 7, date: "09.23", name: "Jacaranda Lake Elementaita Lodge", q: "Jacaranda Lake Elementaita Lodge", note: "艾尔门泰塔湖" },
+        { day: 8, date: "09.24", name: "Amboseli Penety Resort", q: "Amboseli Penety Resort", note: "安博塞利" },
+        { day: 9, date: "09.25", name: "Le Chat'o Park Hôtel", q: "Le Chat'o Park Hotel Antananarivo", note: "09.26 凌晨接机后短休" },
+        { day: 10, date: "09.26", name: "Soanala Hotel & Restaurant", q: "Soanala Hotel & Restaurant Andasibe", note: "安达西贝" },
+        { day: 11, date: "09.27", name: "Soanala Hotel & Restaurant", q: "Soanala Hotel & Restaurant Andasibe", note: "安达西贝" },
+        { day: 12, date: "09.28", name: "Soanala Hotel & Restaurant", q: "Soanala Hotel & Restaurant Andasibe", note: "安达西贝" },
+        { day: 13, date: "09.29", name: "Palmarium Hotel Ankanin'Nofy", q: "Palmarium Hotel Ankanin'Nofy", note: "预约待书面复核" },
+        { day: 14, date: "09.30", name: "Palmarium Hotel Ankanin'Nofy", q: "Palmarium Hotel Ankanin'Nofy", note: "预约待书面复核" },
+        { day: 15, date: "10.01", name: "塔那那利佛市区", q: "Antananarivo city center", note: "酒店未定" },
+        { day: 16, date: "10.02", name: "穆隆达瓦", q: "Morondava Madagascar", note: "夜间长途车后抵达，酒店未定" },
+        { day: 17, date: "10.03", name: "穆隆达瓦", q: "Morondava Madagascar", note: "酒店未定" },
+        { day: 18, date: "10.04", name: "Kirindy 营地", q: "Kirindy Mitea National Park", note: "营地未定" },
+        { day: 19, date: "10.05", name: "Bekopaka", q: "Bekopaka Madagascar", note: "酒店未定" },
+        { day: 20, date: "10.06", name: "Bekopaka", q: "Bekopaka Madagascar", note: "酒店未定" },
+        { day: 21, date: "10.07", name: "穆隆达瓦", q: "Morondava Madagascar", note: "酒店未定" },
+        { day: 22, date: "10.08", name: "塔那那利佛市区", q: "Antananarivo city center", note: "酒店未定" },
+        { day: 23, date: "10.09", name: "返程航班中", q: "Ivato International Airport Antananarivo", note: "日期待票务确认" },
+        { day: 24, date: "10.10", name: "迪拜 / 德里 / 航班中", q: "Dubai International Airport", note: "跨夜飞行" }
+      ];
+
+      const days = [
+        {
+          n: 1,
+          date: "2026-09-17",
+          weekday: "周四",
+          title: "安阳 → 郑州 → 广州",
+          summary: "三段衔接，郑州东换乘只有 26 分钟。",
+          color: palette[0],
+          tags: ["国内交通", "换乘风险"],
+          events: [
+            { time: "10:50", tz: "CST UTC+8", title: "安阳东站出发", detail: "前往郑州东站。", place: P.anyang },
+            { time: "11:38", tz: "CST UTC+8", title: "抵达郑州东站", detail: "距下一段换乘仅 26 分钟，前序晚点会直接影响衔接。", place: P.zzEast },
+            { time: "12:04", tz: "CST UTC+8", title: "郑州东 → 新郑机场", detail: "12:25 抵达机场，预留约 2 小时 30 分办理后续航班。", place: P.zzAirport },
+            { time: "14:55", tz: "CST UTC+8", title: "新郑机场 → 广州", detail: "17:20 抵达广州，之后前往白云机场衔接跨夜国际航班。", place: P.can },
+            { time: "夜间", tz: "CST UTC+8", title: "广州白云机场转机", detail: "国际航班于 09-18 00:15 起飞，值机与安检按航空公司要求提前完成。", place: P.can }
+          ],
+          route: [P.anyang, P.zzEast, P.zzAirport, P.can],
+          nav: [P.anyang, P.zzEast, P.zzAirport, P.can],
+          notes: [
+            { type: "warn", text: "郑州东 26 分钟换乘是全程第一个硬风险。若前序列车晚点，后续到广州和跨夜国际航班都会受影响。" },
+            { type: "info", text: "国际航班跨到 9 月 18 日 00:15，不要按 9 月 17 日夜间才到机场的时间理解。" }
+          ]
+        },
+        {
+          n: 2,
+          date: "2026-09-18",
+          weekday: "周五",
+          title: "广州 → 罗安达 → 内罗毕",
+          summary: "DT693 + DT590，17:00 抵达内罗毕并接机。",
+          color: palette[1],
+          tags: ["已出票", "长途飞行", "行李直达内罗毕"],
+          events: [
+            { time: "00:15", tz: "CST UTC+8", title: "广州白云 T2 起飞", detail: "安哥拉航空 DT693，波音 787；每成人托运 2 件、手提 1 件。", place: P.can },
+            { time: "07:15", tz: "WAT UTC+1", title: "抵达罗安达", detail: "NBJ 中转，停留 3 小时 45 分，无需过境签，行李直达内罗毕。", place: P.nbj },
+            { time: "11:00", tz: "WAT UTC+1", title: "罗安达起飞", detail: "安哥拉航空 DT590 前往内罗毕。", place: P.nbj },
+            { time: "17:00", tz: "EAT UTC+3", title: "抵达内罗毕 NBO T1B", detail: "确认单安排举牌接机，随后送往 Yeza Garden Hotel。", place: P.nbo },
+            { time: "18:00", tz: "EAT UTC+3", title: "机场 → 酒店", detail: "预计接机后前往内罗毕酒店；晚上以休息为主。", place: P.yeza }
+          ],
+          route: [P.can, P.nbj, P.nbo, P.yeza],
+          nav: [P.nbo, P.yeza],
+          navLabel: "机场 → 酒店导航",
+          notes: [
+            { type: "info", text: "两段航班和行李额度来自已确认订单截图；中转罗安达无需过境签。" },
+            { type: "warn", text: "抵达后先确认司机电话与车牌。确认单记录车牌 KDG 277X，司机 +254 722 644 591。" }
+          ]
+        },
+        {
+          n: 3,
+          date: "2026-09-19",
+          weekday: "周六",
+          title: "内罗毕 → 马赛马拉",
+          summary: "途经东非大裂谷，下午马赛村；今日不入国家公园。",
+          color: palette[2],
+          tags: ["长车程", "马赛村"],
+          events: [
+            { time: "早餐后", tz: "EAT UTC+3", title: "驱车前往马赛马拉", detail: "全程约 5 至 6 小时，草原路段颠簸。", place: P.yeza },
+            { time: "约 11:00", tz: "EAT UTC+3", title: "东非大裂谷观景", detail: "途中停留参观。", place: P.rift },
+            { time: "下午", tz: "EAT UTC+3", title: "入住 Mara Chui Lodge", detail: "酒店自助午餐后短暂休息。", place: P.mara },
+            { time: "约 16:00", tz: "EAT UTC+3", title: "马赛村约 1 小时", detail: "今日不进入国家公园。", place: P.maraVillage }
+          ],
+          route: [P.yeza, P.rift, P.mara, P.maraVillage],
+          nav: [P.yeza, P.rift, P.mara],
+          notes: [
+            { type: "info", text: "马赛村活动已含在肯尼亚套餐内。" },
+            { type: "warn", text: "长途土路与碎石路会明显增加车辆故障和晕车概率，随身药物不要放在大行李中。" }
+          ]
+        },
+        {
+          n: 4,
+          date: "2026-09-20",
+          weekday: "周日",
+          title: "马赛马拉全天 Safari",
+          summary: "08:00 出发，16:00 返回，目标马拉河与草原动物。",
+          color: palette[3],
+          tags: ["已含门票", "全天游猎", "打包午餐"],
+          events: [
+            { time: "08:00", tz: "EAT UTC+3", title: "出发追踪动物", detail: "携带酒店打包午餐，重点前往马拉河区域。", place: P.mara },
+            { time: "全天", tz: "EAT UTC+3", title: "马赛马拉国家保护区", detail: "狮子、象群、角马、猎豹、长颈鹿等。", place: P.maraRiver },
+            { time: "16:00", tz: "EAT UTC+3", title: "返回 Mara Chui Lodge", detail: "晚餐后休息。", place: P.mara }
+          ],
+          route: [P.mara, P.maraRiver],
+          nav: [P.mara, P.maraRiver],
+          notes: [
+            { type: "info", text: "本次含 2 次马赛马拉首道门票。" },
+            { type: "info", text: "清晨和傍晚温度低，越野车开篷时风大，长裤和薄外套更实用。" }
+          ]
+        },
+        {
+          n: 5,
+          date: "2026-09-21",
+          weekday: "周一",
+          title: "马赛马拉全天 Safari",
+          summary: "继续全天游猎，节奏与前一天相同。",
+          color: palette[4],
+          tags: ["已含门票", "全天游猎", "打包午餐"],
+          events: [
+            { time: "08:00", tz: "EAT UTC+3", title: "出发继续游猎", detail: "根据当日动物动向选择路线。", place: P.mara },
+            { time: "全天", tz: "EAT UTC+3", title: "马拉河区域追踪", detail: "9 月仍处于动物迁徙观察窗口，但具体过河完全取决于降雨与兽群位置。", place: P.maraRiver },
+            { time: "16:00", tz: "EAT UTC+3", title: "返回酒店", detail: "整理照片、充电并早休息。", place: P.mara }
+          ],
+          route: [P.mara, P.maraRiver],
+          nav: [P.mara, P.maraRiver],
+          notes: [
+            { type: "info", text: "“看得到动物大迁徙”不能写成保证；当天路线应由司机按无线电信息决定。" },
+            { type: "info", text: "给相机和手机准备防尘措施，草原尘土很多。" }
+          ]
+        },
+        {
+          n: 6,
+          date: "2026-09-22",
+          weekday: "周二",
+          title: "马赛马拉 → 纳库鲁湖",
+          summary: "长距离转场，16:00 至 18:00 游览纳库鲁湖。",
+          color: palette[5],
+          tags: ["长车程", "已含门票"],
+          events: [
+            { time: "早餐后", tz: "EAT UTC+3", title: "驱车前往纳库鲁", detail: "路程较长，午餐后入住 Merica Hotel。", place: P.mara },
+            { time: "下午", tz: "EAT UTC+3", title: "抵达并休整", detail: "抵达纳库鲁市区酒店。", place: P.merica },
+            { time: "16:00", tz: "EAT UTC+3", title: "纳库鲁湖国家公园", detail: "游览至 18:00，关注黑白犀牛与水鸟。", place: P.nakuru }
+          ],
+          route: [P.mara, P.merica, P.nakuru],
+          nav: [P.mara, P.merica, P.nakuru],
+          notes: [
+            { type: "warn", text: "火烈鸟数量受水位和食物影响，确认单明确不保证看到。" },
+            { type: "info", text: "纳库鲁首道门票已包含。" }
+          ]
+        },
+        {
+          n: 7,
+          date: "2026-09-23",
+          weekday: "周三",
+          title: "纳库鲁 → 艾尔门泰塔湖 → 奈瓦沙湖",
+          summary: "下午奈瓦沙湖游船约 45 分钟。",
+          color: palette[6],
+          tags: ["已含船票", "河马水域"],
+          events: [
+            { time: "早餐后", tz: "EAT UTC+3", title: "前往艾尔门泰塔湖", detail: "抵达 Jacaranda Lake Elementaita Lodge 并用午餐。", place: P.merica },
+            { time: "下午", tz: "EAT UTC+3", title: "奈瓦沙湖游船", detail: "约 45 分钟，观察水鸟和河马家族。", place: P.naivasha },
+            { time: "傍晚", tz: "EAT UTC+3", title: "返回酒店晚餐", detail: "入住 Jacaranda Lake Elementaita Lodge。", place: P.elementaita }
+          ],
+          route: [P.merica, P.elementaita, P.naivasha, P.elementaita],
+          nav: [P.merica, P.elementaita, P.naivasha],
+          notes: [
+            { type: "warn", text: "奈瓦沙湖有野生河马。听从船夫安排，不伸手、不靠近、不单独行动。" },
+            { type: "info", text: "乘船游览已包含。" }
+          ]
+        },
+        {
+          n: 8,
+          date: "2026-09-24",
+          weekday: "周四",
+          title: "奈瓦沙 → 安博塞利",
+          summary: "清晨转场，下午 16:00 至 18:00 游猎并看乞力马扎罗山。",
+          color: palette[7],
+          tags: ["长车程", "已含门票", "打包早餐"],
+          events: [
+            { time: "清晨", tz: "EAT UTC+3", title: "携带早餐盒出发", detail: "从艾尔门泰塔湖地区前往安博塞利，预计 7 至 8 小时并受路况影响。", place: P.elementaita },
+            { time: "午后", tz: "EAT UTC+3", title: "抵达 Amboseli Penety Resort", detail: "酒店自助午餐。", place: P.penety },
+            { time: "16:00", tz: "EAT UTC+3", title: "安博塞利国家公园", detail: "游览至 18:00，远眺乞力马扎罗山。", place: P.amboseli }
+          ],
+          route: [P.elementaita, P.penety, P.amboseli],
+          nav: [P.elementaita, P.penety, P.amboseli],
+          notes: [
+            { type: "info", text: "安博塞利首道门票已包含。" },
+            { type: "warn", text: "能否看到乞力马扎罗山完全取决于云层，清晨通常比下午更有机会。" }
+          ]
+        },
+        {
+          n: 9,
+          date: "2026-09-25",
+          weekday: "周五",
+          title: "安博塞利 → 内罗毕 → 塔那那利佛",
+          summary: "17:30 已出票航班离境，凌晨落地后入住 Le Chat'o Park Hôtel。",
+          color: palette[8],
+          tags: ["已出票", "送机", "跨夜转机", "已订短休酒店"],
+          events: [
+            { time: "建议 07:00", tz: "EAT UTC+3", title: "早餐后返回内罗毕", detail: "安博塞利到内罗毕通常 5 至 6 小时，需给市区拥堵和机场手续留足时间。", place: P.penety },
+            { time: "17:30", tz: "EAT UTC+3", title: "内罗毕 → 亚的斯亚贝巴", detail: "埃塞俄比亚航空 ET319，18:35 为总清单备选返程航班起飞时间；实际为 17:30 起飞、19:30 抵达。", place: P.nbo },
+            { time: "19:30", tz: "EAT UTC+3", title: "抵达亚的斯亚贝巴", detail: "停留约 2 小时 10 分，无需过境签。", place: P.add },
+            { time: "21:40", tz: "EAT UTC+3", title: "亚的斯亚贝巴 → 塔那那利佛", detail: "ET885，预计 09-26 02:25 抵达 Ivato 机场，行李直达。", place: P.add },
+            { time: "02:25 +1", tz: "EAT UTC+3", title: "抵达塔那那利佛", detail: "已确定接站司机，入境后前往 Le Chat'o Park Hôtel 休息。", place: P.ivato },
+            { time: "03:30 +1", tz: "EAT UTC+3", title: "入住短休酒店", detail: "总清单列出 Le Chat'o Park Hôtel，费用 370，司机电话 +261 38 113 9578。", place: P.leChato }
+          ],
+          route: [P.penety, P.nbo, P.add, P.ivato, P.leChato],
+          nav: [P.penety, P.nbo],
+          navLabel: "酒店 → 内罗毕机场",
+          notes: [
+            { type: "warn", text: "今天不要安排额外景点。安博塞利回内罗毕的路况和市区堵车可能吞掉大量时间。" },
+            { type: "info", text: "订单显示经济舱、含餐、行李直达；但转机时间仍以机场实时屏幕为准。" },
+            { type: "booking", text: "Le Chat'o Park Hôtel 来自总清单，已确定接站时间与司机电话。" }
+          ]
+        },
+        {
+          n: 10,
+          date: "2026-09-26",
+          weekday: "周六",
+          title: "抵达塔那那利佛 → 蝴蝶谷 → 安达西贝",
+          summary: "凌晨入住短休酒店，午后蝴蝶谷，傍晚入住安达西贝。",
+          color: palette[9],
+          tags: ["凌晨抵达", "已订酒店", "需要体力"],
+          events: [
+            { time: "上午", tz: "EAT UTC+3", title: "Le Chat'o Park Hôtel 补觉", detail: "凌晨落地后短休，并办理换汇、电话卡等事项。", place: P.leChato },
+            { time: "13:30", tz: "EAT UTC+3", title: "蝴蝶谷 Peyrieras", detail: "观察变色龙与狐猴，之后前往安达西贝。", place: P.peyrieras },
+            { time: "17:30", tz: "EAT UTC+3", title: "前往并入住安达西贝", detail: "Soanala Hotel 标准入住时间为 12:00，实际按傍晚抵达，9 月 29 日 10:00 退房。", place: P.soanala },
+            { time: "19:30", tz: "EAT UTC+3", title: "Mitsinjo 夜游", detail: "总清单安排夜间观察，实际出发时间抵达后与现场确认。", place: P.analamazaotra }
+          ],
+          route: [P.leChato, P.peyrieras, P.soanala],
+          nav: [P.leChato, P.peyrieras, P.soanala],
+          notes: [
+            { type: "warn", text: "凌晨落地后直接安排下午与夜间活动，疲劳叠加明显。若入境或行李延误，至少取消当晚夜游。" },
+            { type: "booking", text: "Le Chat'o Park Hôtel 为凌晨短休；Soanala 已由 Expedia 订单确认，房型不含公开房间号。" }
+          ]
+        },
+        {
+          n: 11,
+          date: "2026-09-27",
+          weekday: "周日",
+          title: "安达西贝全天",
+          summary: "清晨听 Indri，下午狐猴岛与鳄鱼谷，晚上官方园夜游。",
+          color: palette[10],
+          tags: ["全天活动", "需现场向导"],
+          events: [
+            { time: "06:30", tz: "EAT UTC+3", title: "Analamazaotra 官方园", detail: "清晨入园寻找 Indri 大狐猴。", place: P.analamazaotra },
+            { time: "14:00", tz: "EAT UTC+3", title: "狐猴岛 + 鳄鱼谷", detail: "下午连续两个保护区活动。", place: P.lemurIsland },
+            { time: "19:00", tz: "EAT UTC+3", title: "官方园夜游", detail: "夜间物种观察，需跟随指定向导。", place: P.analamazaotra }
+          ],
+          route: [P.soanala, P.analamazaotra, P.lemurIsland, P.crocodile, P.soanala],
+          nav: [P.soanala, P.analamazaotra, P.lemurIsland, P.crocodile],
+          notes: [
+            { type: "info", text: "国家公园和保护区通常由当地持证向导带队，门票和向导费现场支付或通过司机代购。" },
+            { type: "warn", text: "今天从清晨排到夜间，步行多。雨林夜里湿滑，头灯、雨衣和防滑鞋必须随身。" }
+          ]
+        },
+        {
+          n: 12,
+          date: "2026-09-28",
+          weekday: "周一",
+          title: "曼塔迪亚国家公园全天",
+          summary: "原始雨林徒步，寻找东部冕狐猴、黑白领狐猴与竹狐猴。",
+          color: palette[11],
+          tags: ["全天徒步", "官方园"],
+          events: [
+            { time: "07:00", tz: "EAT UTC+3", title: "出发前往曼塔迪亚", detail: "从安达西贝进入曼塔迪亚区域，全天徒步。", place: P.soanala },
+            { time: "全天", tz: "EAT UTC+3", title: "曼塔迪亚雨林", detail: "路线难度和泥泞程度取决于降雨，需听从向导决定。", place: P.mantadia },
+            { time: "傍晚", tz: "EAT UTC+3", title: "返回 Soanala Hotel", detail: "结束连续第二天高强度雨林活动。", place: P.soanala }
+          ],
+          route: [P.soanala, P.mantadia, P.soanala],
+          nav: [P.soanala, P.mantadia],
+          notes: [
+            { type: "info", text: "入口和向导安排不宜临时到门口才找，建议前一天让酒店或司机确认车辆与向导。" },
+            { type: "warn", text: "雨林徒步不要穿新鞋或短裤，建议长裤、防滑鞋、雨衣和小背包。" }
+          ]
+        },
+        {
+          n: 13,
+          date: "2026-09-29",
+          weekday: "周二",
+          title: "安达西贝 → Manambato → Palmarium",
+          summary: "10:00 退房，转车转船进入 Ankanin'Nofy。",
+          color: palette[12],
+          tags: ["车船联程", "预约复核", "行李搬运"],
+          events: [
+            { time: "07:00", tz: "EAT UTC+3", title: "早餐与退房准备", detail: "酒店要求 10:00 退房，但总清单安排此时向 Manambato 出发。", place: P.soanala },
+            { time: "午后", tz: "EAT UTC+3", title: "抵达 Manambato 渡口", detail: "换乘包船前往 Palmarium。", place: P.manambato },
+            { time: "下午", tz: "EAT UTC+3", title: "入住并湖畔雨林徒步", detail: "看狐猴、长颈鹿象鼻虫。", place: P.palmarium },
+            { time: "夜间", tz: "EAT UTC+3", title: "夜船寻找 Aye-aye", detail: "是否可出动取决于天气与水位。", place: P.palmarium }
+          ],
+          route: [P.soanala, P.manambato, P.palmarium],
+          nav: [P.soanala, P.manambato],
+          notes: [
+            { type: "booking", text: "总清单写明 WhatsApp 已预定，但还需要给酒店发送包车司机电话；司机确定后第一时间补发。" },
+            { type: "warn", text: "船运受天气和水位影响，行李应做防水保护。" }
+          ]
+        },
+        {
+          n: 14,
+          date: "2026-09-30",
+          weekday: "周三",
+          title: "Palmarium 全天",
+          summary: "晨步、独木舟与夜间迷你变色龙。",
+          color: palette[13],
+          tags: ["全天活动", "水上交通"],
+          events: [
+            { time: "06:30", tz: "EAT UTC+3", title: "晨间雨林步道", detail: "观察清晨活动的狐猴与鸟类。", place: P.palmarium },
+            { time: "10:00", tz: "EAT UTC+3", title: "独木舟游湖", detail: "以酒店现场安排为准。", place: P.palmarium },
+            { time: "下午", tz: "EAT UTC+3", title: "休整", detail: "为次日的长距离返程恢复体力。", place: P.palmarium },
+            { time: "19:00", tz: "EAT UTC+3", title: "夜间寻找 Brookesia nofy", detail: "迷你变色龙观察。", place: P.palmarium }
+          ],
+          route: [P.palmarium],
+          nav: [],
+          notes: [
+            { type: "info", text: "今天避免安排潜水或长途延伸活动，重点为休息和整理行李。" }
+          ]
+        },
+        {
+          n: 15,
+          date: "2026-10-01",
+          weekday: "周四",
+          title: "Palmarium → Manambato → 塔那那利佛",
+          summary: "返城后必须线下购买 10 月 2 日 03:00 长途车票。",
+          color: palette[14],
+          tags: ["长车程", "必须线下购票", "高风险"],
+          events: [
+            { time: "06:30", tz: "EAT UTC+3", title: "船返 Manambato", detail: "按酒店安排离岛，换车返回塔那那利佛。", place: P.palmarium },
+            { time: "16:00", tz: "EAT UTC+3", title: "抵达塔那那利佛市区", detail: "酒店尚未确定。", place: P.tana },
+            { time: "18:00", tz: "EAT UTC+3", title: "Cotisse Analakely 购票", detail: "目标购买 10 月 2 日 03:00 塔那那利佛 → 穆隆达瓦车票。", place: P.cotisse }
+          ],
+          route: [P.palmarium, P.manambato, P.tana, P.cotisse],
+          nav: [P.manambato, P.tana, P.cotisse],
+          notes: [
+            { type: "warn", text: "这是关键风险：16:00 只是预计到城时间，长车程若延误，售票处可能已关门。不要依赖当天 18:00 才买次日凌晨票；应让马达加斯加司机或酒店提前代购并留凭证。" },
+            { type: "booking", text: "外国卡无法在线付款，总清单注明必须线下购买。" }
+          ]
+        },
+        {
+          n: 16,
+          date: "2026-10-02",
+          weekday: "周五",
+          title: "塔那那利佛 → 穆隆达瓦",
+          summary: "03:00 长途小巴，650 公里，16 至 18 小时。",
+          color: palette[15],
+          tags: ["长途夜巴", "必须提前买票", "硬座"],
+          events: [
+            { time: "03:00", tz: "EAT UTC+3", title: "Cotisse 小巴出发", detail: "塔那那利佛 → 穆隆达瓦，650 公里。", place: P.cotisse },
+            { time: "每 2-3 小时", tz: "EAT UTC+3", title: "路边短暂停车", detail: "途经 Miandrivazo，休息条件有限。", place: P.morondava },
+            { time: "约 21:00", tz: "EAT UTC+3", title: "抵达穆隆达瓦", detail: "酒店未确定，到达后尽快入住。", place: P.morondava }
+          ],
+          route: [P.cotisse, P.morondava],
+          nav: [P.cotisse, P.morondava],
+          notes: [
+            { type: "warn", text: "16 至 18 小时硬座在一天内完成，疲劳程度高。饮水、晕车药、颈枕和耳塞放在随身包。" },
+            { type: "info", text: "抵达时间可能因车辆、道路和停靠明显波动，当晚不要安排任何必须准点参加的活动。" }
+          ]
+        },
+        {
+          n: 17,
+          date: "2026-10-03",
+          weekday: "周六",
+          title: "穆隆达瓦与猴面包树大道",
+          summary: "上午补觉，傍晚追日落。",
+          color: palette[16],
+          tags: ["恢复日", "日落活动"],
+          events: [
+            { time: "上午", tz: "EAT UTC+3", title: "补觉与休整", detail: "缓解前一日长途车疲劳。", place: P.morondava },
+            { time: "16:30", tz: "EAT UTC+3", title: "前往猴面包树大道", detail: "日落前抵达，随后看爱情猴面包树。", place: P.baobab },
+            { time: "夜间", tz: "EAT UTC+3", title: "返回穆隆达瓦", detail: "土路夜间视野有限，尽量由熟悉路况的司机接送。", place: P.morondava }
+          ],
+          route: [P.morondava, P.baobab, P.morondava],
+          nav: [P.morondava, P.baobab],
+          notes: [
+            { type: "info", text: "日落具体时间按当日现场调整，提前约 1 小时出发。" }
+          ]
+        },
+        {
+          n: 18,
+          date: "2026-10-04",
+          weekday: "周日",
+          title: "穆隆达瓦 → Kirindy Mitea",
+          summary: "约 2 至 3 小时进入干燥落叶林，夜间巡游。",
+          color: palette[17],
+          tags: ["土路", "营地未定", "夜间徒步"],
+          events: [
+            { time: "08:00", tz: "EAT UTC+3", title: "前往 Kirindy Mitea", detail: "车程约 2 至 3 小时，视路况变化。", place: P.morondava },
+            { time: "15:00", tz: "EAT UTC+3", title: "干燥落叶林徒步", detail: "寻找西部白冕狐猴与 fossa 马岛獴。", place: P.kirindy },
+            { time: "19:00", tz: "EAT UTC+3", title: "Kirindy 夜观", detail: "鼠狐猴、巨型跳鼠等夜行动物。", place: P.kirindy }
+          ],
+          route: [P.morondava, P.kirindy],
+          nav: [P.morondava, P.kirindy],
+          notes: [
+            { type: "booking", text: "住宿仅写“Kirindy 营地”，没有明确预订信息，应优先落实。" },
+            { type: "warn", text: "营地设施通常简单，带足现金、头灯、充电宝和防蚊用品。" }
+          ]
+        },
+        {
+          n: 19,
+          date: "2026-10-05",
+          weekday: "周一",
+          title: "Kirindy → Bekopaka",
+          summary: "土路 5 至 6 小时，摆渡 Tsiribihina 河。",
+          color: palette[18],
+          tags: ["土路", "摆渡", "酒店未定"],
+          events: [
+            { time: "07:00", tz: "EAT UTC+3", title: "出发前往 Bekopaka", detail: "沿途西部红土路，车辆和路况影响很大。", place: P.kirindy },
+            { time: "途中", tz: "EAT UTC+3", title: "Tsiribihina 河摆渡", detail: "等待渡船时间不可控。", place: P.bekopaka },
+            { time: "傍晚", tz: "EAT UTC+3", title: "抵达 Bekopaka", detail: "入住并确认次日石林门票、向导和出发时间。", place: P.bekopaka }
+          ],
+          route: [P.kirindy, P.bekopaka],
+          nav: [P.kirindy, P.bekopaka],
+          notes: [
+            { type: "warn", text: "5 至 6 小时只是理想道路时间，摆渡排队或降雨会明显延长。" },
+            { type: "booking", text: "Bekopaka 两晚住宿未定，应在上车前确认有房。" }
+          ]
+        },
+        {
+          n: 20,
+          date: "2026-10-06",
+          weekday: "周二",
+          title: "贝马拉哈大石林全天",
+          summary: "上石林 + 下环线，6 至 8 小时高强度徒步。",
+          color: palette[19],
+          tags: ["全天徒步", "需向导", "高温脱水风险"],
+          events: [
+            { time: "07:00", tz: "EAT UTC+3", title: "进入大石林", detail: "从 Bekopaka 前往公园入口，完成手续并分配向导。", place: P.bekopaka },
+            { time: "全天", tz: "EAT UTC+3", title: "上石林与下环线", detail: "刀锋石灰岩、铁索桥和峡谷路线，预计 6 至 8 小时。", place: P.tsingy },
+            { time: "傍晚", tz: "EAT UTC+3", title: "返回 Bekopaka", detail: "尽早休息并检查次日车辆。", place: P.bekopaka }
+          ],
+          route: [P.bekopaka, P.tsingy, P.bekopaka],
+          nav: [P.bekopaka, P.tsingy],
+          notes: [
+            { type: "warn", text: "石林路线对膝盖、平衡和防晒要求高。手套、足够饮水、电解质和抓地鞋比拍照器材更重要。" },
+            { type: "booking", text: "门票与持证向导必须现场落实，旺季或周末应尽量让酒店提前安排。" }
+          ]
+        },
+        {
+          n: 21,
+          date: "2026-10-07",
+          weekday: "周三",
+          title: "Bekopaka → 穆隆达瓦",
+          summary: "返程土路 6 至 9 小时，次晨 03:00 还要坐长途车。",
+          color: palette[20],
+          tags: ["长车程", "连续疲劳", "高风险衔接"],
+          events: [
+            { time: "07:00", tz: "EAT UTC+3", title: "Bekopaka 返程", detail: "原路返回穆隆达瓦，途中在 Belo-sur-Tsiribihina 用午餐。", place: P.bekopaka },
+            { time: "16:00", tz: "EAT UTC+3", title: "预计抵达穆隆达瓦", detail: "酒店未确定；如果车辆延误，抵达时间会继续后移。", place: P.morondava },
+            { time: "傍晚", tz: "EAT UTC+3", title: "整理并早休", detail: "为 10 月 8 日 03:00 长途车做准备。", place: P.morondava }
+          ],
+          route: [P.bekopaka, P.morondava],
+          nav: [P.bekopaka, P.morondava],
+          notes: [
+            { type: "warn", text: "这是第二个关键衔接：6 至 9 小时土路之后只剩约 11 小时休整，再坐 16 至 18 小时长途车。任何延误都会压缩休息甚至影响返程。" },
+            { type: "booking", text: "10 月 8 日 03:00 穆隆达瓦 → 塔那那利佛车票应提前购买，抵达穆隆达瓦后立刻办理。" }
+          ]
+        },
+        {
+          n: 22,
+          date: "2026-10-08",
+          weekday: "周四",
+          title: "穆隆达瓦 → 塔那那利佛",
+          summary: "03:00 发车，16 至 18 小时，约 21:50 回到塔那。",
+          color: palette[21],
+          tags: ["长途车", "必须提前买票", "返程衔接"],
+          events: [
+            { time: "03:00", tz: "EAT UTC+3", title: "Cotisse 小巴出发", detail: "总清单安排司机到酒店接；需另行确认接送安排。", place: P.morondava },
+            { time: "途中", tz: "EAT UTC+3", title: "返回塔那那利佛", detail: "650 公里，16 至 18 小时。", place: P.tana },
+            { time: "约 21:50", tz: "EAT UTC+3", title: "抵达塔那那利佛", detail: "入住市区酒店，酒店未定。", place: P.tana }
+          ],
+          route: [P.morondava, P.tana],
+          nav: [P.morondava, P.tana],
+          notes: [
+            { type: "info", text: "返程已按最新截图校正为 10 月 9 日 18:35 从塔那那利佛出发，10 月 11 日 04:00 抵达广州。" },
+            { type: "info", text: "抵达后优先确认次日机场接送时间，不再安排城市景点。" }
+          ]
+        },
+        {
+          n: 23,
+          date: "2026-10-09",
+          weekday: "周五",
+          title: "塔那那利佛 → 迪拜 → 德里 → 广州",
+          summary: "已按最新截图校正时间：EK708 + 6E1462 + 6E1701。",
+          color: palette[22],
+          tags: ["时间已核对", "迪拜跨航站楼", "票务待确认"],
+          events: [
+            { time: "15:30", tz: "EAT UTC+3", title: "前往 Ivato 国际机场", detail: "预计时间，需按航空公司建议提前到达。", place: P.tana },
+            { time: "18:35", tz: "EAT UTC+3", title: "塔那那利佛 → 迪拜", detail: "阿联酋航空 EK708，10 月 10 日 04:20 抵达迪拜 T3。", place: P.ivato },
+            { time: "04:20 +1", tz: "GST UTC+4", title: "抵达迪拜 T3", detail: "换至迪拜 T1，中转停留 7 小时 30 分，需重新托运行李。", place: P.dubai },
+            { time: "11:50", tz: "GST UTC+4", title: "迪拜 → 德里", detail: "靛蓝航空 6E1462，从迪拜 T1 起飞，17:05 抵达德里 T3。", place: P.dubai },
+            { time: "20:00", tz: "IST UTC+5:30", title: "德里 → 广州", detail: "靛蓝航空 6E1701，预计 10 月 11 日 04:00 抵达广州白云 T2。", place: P.delhi }
+          ],
+          route: [P.ivato, P.dubai, P.delhi, P.can],
+          nav: [P.tana, P.ivato],
+          navLabel: "酒店 → 伊瓦图机场",
+          notes: [
+            { type: "warn", text: "时间已按最新截图校正为 10 月 9 日出发，但截图仍不等同于已出票确认。出发前确认票号、6E 订单状态及印度过境签证要求。" },
+            { type: "warn", text: "航班抵达迪拜 T3，下一段从 T1 出发；除重新托运行李外，还要预留航站楼间交通与值机安检时间。" }
+          ]
+        },
+        {
+          n: 24,
+          date: "2026-10-10",
+          weekday: "周六",
+          title: "第三国中转",
+          summary: "迪拜、德里至广州，跨夜抵达。",
+          color: palette[23],
+          tags: ["中转日", "跨夜飞行"],
+          events: [
+            { time: "04:20", tz: "GST UTC+4", title: "抵达迪拜 T3", detail: "提取并重新托运行李，随后前往迪拜 T1 办理 6E1462。", place: P.dubai },
+            { time: "11:50", tz: "GST UTC+4", title: "6E1462 飞往德里", detail: "从迪拜 T1 起飞，17:05 抵达德里 T3。", place: P.delhi },
+            { time: "20:00", tz: "IST UTC+5:30", title: "6E1701 飞往广州", detail: "预计 10 月 11 日 04:00 抵达广州白云 T2。", place: P.delhi }
+          ],
+          route: [P.dubai, P.delhi, P.can],
+          nav: [P.dubai, P.delhi],
+          notes: [
+            { type: "warn", text: "印度过境是否需要签证取决于实际航班、国籍和入境政策，必须在出票前确认，不能到德里再处理。" }
+          ]
+        },
+        {
+          n: 25,
+          date: "2026-10-11",
+          weekday: "周日",
+          title: "广州 → 安阳",
+          summary: "04:00 抵达广州，08:30 出发，11:00 回到安阳。",
+          color: palette[24],
+          tags: ["最后一段", "国内交通"],
+          events: [
+            { time: "04:00", tz: "CST UTC+8", title: "抵达广州白云 T2", detail: "提取行李并办理入境。", place: P.can },
+            { time: "08:30", tz: "CST UTC+8", title: "广州 → 安阳", detail: "总清单时间，具体交通方式和票务需最终核对。", place: P.can },
+            { time: "11:00", tz: "CST UTC+8", title: "抵达安阳", detail: "行程结束。", place: P.anyang }
+          ],
+          route: [P.can, P.anyang],
+          nav: [P.can, P.anyang],
+          notes: [
+            { type: "warn", text: "04:00 落地后衔接 08:30 离穗交通，若国际航班延误，国内段可能受影响。建议选择可改签票种或保留更长时间。" }
+          ]
+        }
+      ];
+
+      const bookings = [
+        {
+          group: "国际航班",
+          icon: "flight",
+          items: [
+            {
+              title: "广州 T2 → 罗安达 → 内罗毕",
+              badge: "已出票",
+              badgeClass: "flight",
+              date: "2026-09-18",
+              lines: [
+                "00:15 CST UTC+8 广州白云 T2 起飞，DT693",
+                "07:15 WAT UTC+1 抵达罗安达；11:00 续飞 DT590",
+                "17:00 EAT UTC+3 抵达内罗毕 NBO T1B",
+                "2 位旅客；每成人托运 2 件、手提 1 件"
+              ],
+              actions: [
+                { label: "查看机场", href: mapsSearch(P.can.q) },
+                { label: "抵达机场", href: mapsSearch(P.nbo.q) }
+              ]
+            },
+            {
+              title: "内罗毕 → 亚的斯亚贝巴 → 塔那那利佛",
+              badge: "已出票",
+              badgeClass: "flight",
+              date: "2026-09-25",
+              lines: [
+                "17:30 EAT UTC+3 内罗毕起飞，ET319",
+                "19:30 EAT UTC+3 抵达亚的斯亚贝巴；21:40 续飞 ET885",
+                "次日 02:25 EAT UTC+3 抵达塔那那利佛",
+                "2 位旅客；经济舱；行李直达"
+              ],
+              actions: [
+                { label: "内罗毕机场", href: mapsSearch(P.nbo.q) },
+                { label: "伊瓦图机场", href: mapsSearch(P.ivato.q) }
+              ]
+            },
+            {
+              title: "塔那那利佛 → 迪拜 → 德里 → 广州",
+              badge: "时间已核对",
+              badgeClass: "pending",
+              date: "2026-10-09 出发",
+              lines: [
+                "18:35 TNR 起飞，EK708；次日 04:20 抵达 DXB T3",
+                "11:50 DXB T1 起飞，6E1462；17:05 抵达 DEL T3",
+                "20:00 DEL T3 起飞，6E1701；次日 04:00 抵达 CAN T2",
+                "迪拜需换航站楼并重新托运行李；截图不等同于出票确认"
+              ],
+              actions: [
+                { label: "伊瓦图机场", href: mapsSearch(P.ivato.q) }
+              ]
+            }
+          ]
+        },
+        {
+          group: "旅行保险",
+          icon: "ticket",
+          items: [
+            {
+              title: "25 天境外旅行保险",
+              badge: "已购买",
+              badgeClass: "confirmed",
+              date: "覆盖完整非洲行程",
+              lines: [
+                "已单独购买 25 天保险，按整段 09-17 至 10-11 行程覆盖",
+                "承保公司、生效时间与全球紧急救援电话以最终保单为准",
+                "保单原件不进入公开页面或公开仓库"
+              ],
+              actions: []
+            }
+          ]
+        },
+        {
+          group: "酒店",
+          icon: "bed",
+          items: [
+            {
+              title: "Le Chat'o Park Hôtel",
+              badge: "已确认",
+              badgeClass: "confirmed",
+              date: "09-26 凌晨短休 · 塔那那利佛",
+              lines: [
+                "由总清单列出，已确定接站时间及司机电话",
+                "用于 02:25 落地后的凌晨休息",
+                "地址与酒店电话未写"
+              ],
+              actions: [{ label: "地图导航", href: mapsSearch("Le Chat'o Park Hotel Antananarivo") }]
+            },
+            {
+              title: "Yeza Garden Hotel",
+              badge: "已确认",
+              badgeClass: "confirmed",
+              date: "入住 2026-09-18 · 内罗毕",
+              lines: [
+                "订单/确认单列出酒店，地址未写",
+                "酒店电话未写；机场接机由当地司机负责",
+                "点击地点可直接用 Google Maps 搜索与导航"
+              ],
+              actions: [{ label: "地图导航", href: mapsSearch("Yeza Garden Hotel Nairobi") }]
+            },
+            {
+              title: "Mara Chui Lodge",
+              badge: "已确认",
+              badgeClass: "confirmed",
+              date: "入住 2026-09-19 至 09-21 · 3 晚",
+              lines: [
+                "肯尼亚确认单列为当地四星或同级",
+                "地址与酒店电话未写",
+                "车辆接送与餐食包含在套餐内"
+              ],
+              actions: [{ label: "地图导航", href: mapsSearch("Mara Chui Lodge Maasai Mara") }]
+            },
+            {
+              title: "Merica Hotel",
+              badge: "已确认",
+              badgeClass: "confirmed",
+              date: "入住 2026-09-22 · 纳库鲁",
+              lines: [
+                "肯尼亚确认单列为当地四星或同级",
+                "地址与酒店电话未写"
+              ],
+              actions: [{ label: "地图导航", href: mapsSearch("Merica Hotel Nakuru") }]
+            },
+            {
+              title: "Jacaranda Lake Elementaita Lodge",
+              badge: "已确认",
+              badgeClass: "confirmed",
+              date: "入住 2026-09-23 · 艾尔门泰塔湖",
+              lines: [
+                "肯尼亚确认单列为当地四星或同级",
+                "地址与酒店电话未写"
+              ],
+              actions: [{ label: "地图导航", href: mapsSearch("Jacaranda Lake Elementaita Lodge") }]
+            },
+            {
+              title: "Amboseli Penety Resort",
+              badge: "已确认",
+              badgeClass: "confirmed",
+              date: "入住 2026-09-24 · 安博塞利",
+              lines: [
+                "肯尼亚确认单列为当地四星或同级",
+                "地址与酒店电话未写"
+              ],
+              actions: [{ label: "地图导航", href: mapsSearch("Amboseli Penety Resort") }]
+            },
+            {
+              title: "Soanala Hotel & Restaurant",
+              badge: "已订",
+              badgeClass: "confirmed",
+              date: "12:00 入住 2026-09-26 · 10:00 退房 2026-09-29",
+              lines: [
+                "Standard Double Room, Park View",
+                "双人床、可住 2 人、含早餐与自助停车",
+                "Andasibe；公开页面不写房间号"
+              ],
+              actions: [{ label: "地图导航", href: mapsSearch("Soanala Hotel & Restaurant Andasibe") }]
+            }
+          ]
+        },
+        {
+          group: "车辆与接送",
+          icon: "car",
+          items: [
+            {
+              title: "肯尼亚 7 座越野车",
+              badge: "已确认",
+              badgeClass: "confirmed",
+              date: "2026-09-18 至 09-25",
+              lines: [
+                "车牌 KDG 277X",
+                "司机 Geoger Mezz Salima",
+                "电话 +254 722 644 591"
+              ],
+              actions: [
+                { label: "拨打司机", href: "tel:+254722644591", icon: "phone" }
+              ]
+            },
+            {
+              title: "塔那那利佛接站",
+              badge: "已确认",
+              badgeClass: "confirmed",
+              date: "2026-09-26 凌晨抵达",
+              lines: [
+                "总清单写明已确定接站时间",
+                "司机电话 +261 38 113 9578",
+                "落地后以接站消息再次确认集合点"
+              ],
+              actions: [
+                { label: "拨打司机", href: "tel:+261381139578", icon: "phone" }
+              ]
+            },
+            {
+              title: "Cotisse 长途车",
+              badge: "待购",
+              badgeClass: "pending",
+              date: "10-02 03:00 与 10-08 03:00",
+              lines: [
+                "塔那 → 穆隆达瓦：650 km，16 至 18 小时",
+                "穆隆达瓦 → 塔那：16 至 18 小时",
+                "外国卡无法在线付款，必须线下购票"
+              ],
+              actions: [{ label: "售票处位置", href: mapsSearch("Cotisse Transport Analakely Antananarivo") }]
+            }
+          ]
+        },
+        {
+          group: "门票与活动",
+          icon: "ticket",
+          items: [
+            {
+              title: "肯尼亚套餐景点",
+              badge: "已包含",
+              badgeClass: "confirmed",
+              date: "2 人套餐",
+              lines: [
+                "马赛马拉首道门票 2 次",
+                "纳库鲁湖首道门票 1 次",
+                "安博塞利首道门票 1 次",
+                "马赛村 1 次、奈瓦沙湖乘船 1 次"
+              ],
+              actions: []
+            },
+            {
+              title: "马达加斯加公园与向导",
+              badge: "现场确认",
+              badgeClass: "pending",
+              date: "09-26 至 10-06",
+              lines: [
+                "Analamazaotra、Mantadia、Kirindy、Tsingy",
+                "多数项目需当地持证向导，部分可让酒店先行安排",
+                "旺季与周末的车辆、船和向导应提前一天确认"
+              ],
+              actions: []
+            }
+          ]
+        }
+      ];
+
+      const todos = [
+        {
+          title: "确认返程票的出票状态与印度过境要求",
+          detail: "最新截图已将时间校正为 10 月 9 日 18:35 出发，但仍需确认是否已实际出票，以及 6E1462、6E1701 的订单状态和印度过境签证要求。",
+          priority: "最高"
+        },
+        {
+          title: "提前购买 10 月 2 日塔那 → 穆隆达瓦车票",
+          detail: "不要等 10 月 1 日 18:00 到售票处才买。让当地司机、酒店或可靠代购提前出票并发送电子凭证，明确上车点、座位与行李规则。",
+          priority: "最高"
+        },
+        {
+          title: "提前购买 10 月 8 日穆隆达瓦 → 塔那车票",
+          detail: "抵达穆隆达瓦后立即办理，确认 03:00 酒店接送。若返程航班改为 10 月 8 日，此项需要整体替换方案。",
+          priority: "最高"
+        },
+        {
+          title: "核对肯尼亚 eTA、马达加斯加入境许可与印度过境要求",
+          detail: "总表 I4 批注为“签证”。按两人国籍逐项核对；印度过境是否需要签证必须在返程票购买前解决。随身打印或离线保存批准文件。",
+          priority: "高"
+        },
+        {
+          title: "兑换并分配美元现金",
+          detail: "总表 I5 批注为“兑美金”。偏远营地、长途车补票、向导小费和摆渡常需现金；准备小面额美元并分两处存放。",
+          priority: "高"
+        },
+        {
+          title: "确认 Palmarium 预订并向酒店发送司机电话",
+          detail: "总清单写明 WhatsApp 已预定，但司机信息尚未发送。同时确认 Manambato 包船接送、行李防水和迟到处理。",
+          priority: "高"
+        },
+        {
+          title: "落实 Kirindy 营地与 Bekopaka 两晚住宿",
+          detail: "总清单目前写“未定酒店”或仅写“营地”。土路行程不能到傍晚再找房，尤其在周末和旺季。",
+          priority: "高"
+        },
+        {
+          title: "落实穆隆达瓦与塔那那利佛的 5 晚酒店",
+          detail: "涉及 10 月 2、3、7、8 日附近及 10 月 1 日市区住宿。优先选择可取消、靠近车辆接送点的房间。",
+          priority: "高"
+        },
+        {
+          title: "确认迪拜 T3 → T1 转机与重新托运流程",
+          detail: "截图显示 EK708 抵达迪拜 T3，6E1462 从迪拜 T1 出发；需确认行李提取、航站楼交通、值机柜台关闭时间和印度过境材料。",
+          priority: "高"
+        },
+        {
+          title: "确认马达加斯加包车司机与全程车辆",
+          detail: "总清单只有塔那接站司机电话。安达西贝至 Manambato、返塔那、穆隆达瓦与 Kirindy 线需明确由谁承运、车辆类型和超时费用。",
+          priority: "高"
+        },
+        {
+          title: "为 Tsingy 全天准备强制装备",
+          detail: "抓地鞋、薄手套、足量水、电解质、防晒、头灯与轻便雨衣。6 至 8 小时石林路线不适合穿拖鞋或只带手机。",
+          priority: "中"
+        },
+        {
+          title: "准备黄热病证明与常用药",
+          detail: "肯尼亚确认单要求携带黄皮书。另备防疟、胃肠、晕车、止痛、补液盐和个人处方药，并保留原包装。",
+          priority: "中"
+        },
+        {
+          title: "做一次夜间离线备份",
+          detail: "把本页面保存到两台手机，同时保存护照、签证、保险、机票和酒店确认的离线副本；敏感文件不要上传公开仓库。",
+          priority: "中"
+        }
+      ];
+
+      const tips = [
+        {
+          title: "时区与时间",
+          items: [
+            "<strong>中国：</strong>CST UTC+8；<strong>肯尼亚、马达加斯加：</strong>EAT UTC+3；<strong>迪拜：</strong>GST UTC+4；<strong>德里：</strong>IST UTC+5:30。",
+            "肯尼亚和马达加斯加都比中国慢 5 小时。倒计时使用绝对时刻，不会因手机所在地改变。",
+            "所有航班时间均为当地起飞/到达时间，转机时长要按时间轴重新计算，不能只看钟面。"
+          ]
+        },
+        {
+          title: "交通与道路",
+          items: [
+            "肯尼亚园区间车辆普遍 5 至 8 小时，柏油路之外颠簸明显。晕车药应在出发前半小时服用。",
+            "马达加斯加塔那周边道路拥堵，650 公里长途巴士可能跑 16 至 18 小时。",
+            "Kirindy 至 Bekopaka 的土路与摆渡都有明显延误风险，任何航班或固定预约都不要压在当天抵达后。",
+            "Google Maps 导航链接按地点名称或近似坐标打开；偏远园区以酒店和司机电话沟通为准。"
+          ]
+        },
+        {
+          title: "预约与售罄",
+          items: [
+            "本次没有博物馆行程，核心不是闭馆日，而是国家公园向导、船、长途车与偏远营地的余位。",
+            "9 月下旬至 10 月初没有影响本次路线的肯尼亚或马达加斯加全国性公共假期，但热门节点仍可能售罄。",
+            "Analamazaotra、Mantadia、Kirindy、Tsingy 均由当地持证向导带队，建议至少提前一天确认。",
+            "Cotisse 车票必须线下购买，10 月 2 日和 10 月 8 日两班是最容易因拖延出问题的项目。"
+          ]
+        },
+        {
+          title: "健康与安全",
+          items: [
+            "黄热病证书按确认单要求随身携带；入境政策可能按国籍、转机地和疫苗史变化，出发前再次核对。",
+            "园区酒店通常不提供牙具和拖鞋；当地自来水即使烧开也不建议直接饮用。",
+            "草原和雨林防蚊、防尘、防晒同时需要。长裤、薄外套、防滑鞋、雨衣和头灯建议每天随身。",
+            "公开页面不写房间号、证件号、订单号、票号或二维码。涉及证件的离线文件也不要上传到公开仓库。"
+          ]
+        },
+        {
+          title: "通信与离线",
+          items: [
+            "出发前确认手机国际漫游和数据；在塔那那利佛机场购买当地电话卡，肯尼亚段优先使用酒店 Wi-Fi 或漫游数据。",
+            "机场、园区和土路经常没有稳定网络。把司机的电话、车牌、酒店名称和关键确认截图保存在两台设备。",
+            "页面本身零外部依赖，加载后即可离线查看；导航链接在无网络时需要手机已缓存地图或离线地图。"
+          ]
+        },
+        {
+          title: "行李与摄影",
+          items: [
+            "7 座越野车在肯尼亚段可能满员，软质行李更易堆放。贵重物品和药物不要放在后备箱。",
+            "长焦镜头、备用电池、防尘袋和足够存储卡用于 Safari；雨林段准备镜头防雾与轻量防水罩。",
+            "无人机、长焦专业设备和部分摄影器材可能涉及许可，不要在没有书面许可时带入国家公园。"
+          ]
+        }
+      ];
+
+      const events = [
+        { at: "2026-09-17T10:50:00+08:00", zone: "Asia/Shanghai", tz: "CST UTC+8", title: "安阳东站出发", place: "安阳东站" },
+        { at: "2026-09-17T14:55:00+08:00", zone: "Asia/Shanghai", tz: "CST UTC+8", title: "新郑机场飞广州", place: "郑州新郑机场" },
+        { at: "2026-09-18T00:15:00+08:00", zone: "Asia/Shanghai", tz: "CST UTC+8", title: "广州飞往罗安达", place: "广州白云 T2" },
+        { at: "2026-09-18T17:00:00+03:00", zone: "Africa/Nairobi", tz: "EAT UTC+3", title: "抵达内罗毕", place: "NBO T1B" },
+        { at: "2026-09-19T08:00:00+03:00", zone: "Africa/Nairobi", tz: "EAT UTC+3", title: "前往马赛马拉", place: "内罗毕" },
+        { at: "2026-09-20T08:00:00+03:00", zone: "Africa/Nairobi", tz: "EAT UTC+3", title: "马赛马拉全天 Safari", place: "马赛马拉" },
+        { at: "2026-09-21T08:00:00+03:00", zone: "Africa/Nairobi", tz: "EAT UTC+3", title: "马赛马拉全天 Safari", place: "马赛马拉" },
+        { at: "2026-09-22T08:00:00+03:00", zone: "Africa/Nairobi", tz: "EAT UTC+3", title: "前往纳库鲁湖", place: "马赛马拉" },
+        { at: "2026-09-23T08:00:00+03:00", zone: "Africa/Nairobi", tz: "EAT UTC+3", title: "前往奈瓦沙湖", place: "纳库鲁" },
+        { at: "2026-09-24T06:30:00+03:00", zone: "Africa/Nairobi", tz: "EAT UTC+3", title: "前往安博塞利", place: "艾尔门泰塔湖" },
+        { at: "2026-09-25T17:30:00+03:00", zone: "Africa/Nairobi", tz: "EAT UTC+3", title: "飞往亚的斯亚贝巴", place: "内罗毕 NBO" },
+        { at: "2026-09-26T02:25:00+03:00", zone: "Indian/Antananarivo", tz: "EAT UTC+3", title: "抵达塔那那利佛", place: "Ivato 机场" },
+        { at: "2026-09-26T12:00:00+03:00", zone: "Indian/Antananarivo", tz: "EAT UTC+3", title: "Soanala Hotel 入住", place: "Andasibe" },
+        { at: "2026-09-27T06:30:00+03:00", zone: "Indian/Antananarivo", tz: "EAT UTC+3", title: "Analamazaotra 晨间入园", place: "Andasibe" },
+        { at: "2026-09-28T07:00:00+03:00", zone: "Indian/Antananarivo", tz: "EAT UTC+3", title: "前往曼塔迪亚", place: "Andasibe" },
+        { at: "2026-09-29T07:00:00+03:00", zone: "Indian/Antananarivo", tz: "EAT UTC+3", title: "前往 Palmarium", place: "Andasibe" },
+        { at: "2026-09-30T06:30:00+03:00", zone: "Indian/Antananarivo", tz: "EAT UTC+3", title: "Palmarium 晨步", place: "Ankanin'Nofy" },
+        { at: "2026-10-01T06:30:00+03:00", zone: "Indian/Antananarivo", tz: "EAT UTC+3", title: "返回塔那那利佛", place: "Palmarium" },
+        { at: "2026-10-02T03:00:00+03:00", zone: "Indian/Antananarivo", tz: "EAT UTC+3", title: "长途车前往穆隆达瓦", place: "Cotisse Analakely" },
+        { at: "2026-10-03T16:30:00+03:00", zone: "Indian/Antananarivo", tz: "EAT UTC+3", title: "猴面包树大道日落", place: "穆隆达瓦" },
+        { at: "2026-10-04T08:00:00+03:00", zone: "Indian/Antananarivo", tz: "EAT UTC+3", title: "前往 Kirindy", place: "穆隆达瓦" },
+        { at: "2026-10-05T07:00:00+03:00", zone: "Indian/Antananarivo", tz: "EAT UTC+3", title: "前往 Bekopaka", place: "Kirindy" },
+        { at: "2026-10-06T07:00:00+03:00", zone: "Indian/Antananarivo", tz: "EAT UTC+3", title: "Tsingy 大石林全天", place: "Bekopaka" },
+        { at: "2026-10-07T07:00:00+03:00", zone: "Indian/Antananarivo", tz: "EAT UTC+3", title: "返回穆隆达瓦", place: "Bekopaka" },
+        { at: "2026-10-08T03:00:00+03:00", zone: "Indian/Antananarivo", tz: "EAT UTC+3", title: "长途车返回塔那那利佛", place: "穆隆达瓦" },
+        { at: "2026-10-09T18:35:00+03:00", zone: "Indian/Antananarivo", tz: "EAT UTC+3", title: "计划返程航班起飞", place: "Ivato 机场" },
+        { at: "2026-10-11T08:30:00+08:00", zone: "Asia/Shanghai", tz: "CST UTC+8", title: "广州返回安阳", place: "广州白云 T2" },
+        { at: "2026-10-11T11:00:00+08:00", zone: "Asia/Shanghai", tz: "CST UTC+8", title: "抵达安阳", place: "安阳" }
+      ];
+
+      function mapsSearch(query) {
+        return "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(query);
+      }
+
+      function mapsDirections(points, mode) {
+        const valid = points.filter(Boolean);
+        if (!valid.length) return mapsSearch("Madagascar");
+        const origin = valid[0].q;
+        const destination = valid[valid.length - 1].q;
+        const waypoints = valid.slice(1, -1).map((item) => item.q).join("|");
+        const params = new URLSearchParams({
+          api: "1",
+          origin,
+          destination,
+          travelmode: mode || "driving"
+        });
+        if (waypoints) params.set("waypoints", waypoints);
+        return "https://www.google.com/maps/dir/?" + params.toString();
+      }
+
+      function escapeHtml(value) {
+        return String(value)
+          .replaceAll("&", "&amp;")
+          .replaceAll("<", "&lt;")
+          .replaceAll(">", "&gt;")
+          .replaceAll('"', "&quot;")
+          .replaceAll("'", "&#039;");
+      }
+
+      function dateAtZone(date, zone) {
+        return new Intl.DateTimeFormat("zh-CN", {
+          timeZone: zone,
+          month: "2-digit",
+          day: "2-digit",
+          weekday: "short",
+          hour: "2-digit",
+          minute: "2-digit",
+          hour12: false
+        }).format(date);
+      }
+
+      function pad(value) {
+        return String(value).padStart(2, "0");
+      }
+
+      function updateCountdown() {
+        const now = new Date();
+        const next = events.find((event) => new Date(event.at).getTime() > now.getTime()) || events[events.length - 1];
+        const distance = Math.max(0, new Date(next.at).getTime() - now.getTime());
+        const totalSeconds = Math.floor(distance / 1000);
+        const days = Math.floor(totalSeconds / 86400);
+        const hours = Math.floor((totalSeconds % 86400) / 3600);
+        const minutes = Math.floor((totalSeconds % 3600) / 60);
+        const seconds = totalSeconds % 60;
+
+        document.getElementById("count-days").textContent = days;
+        document.getElementById("count-hours").textContent = pad(hours);
+        document.getElementById("count-minutes").textContent = pad(minutes);
+        document.getElementById("count-seconds").textContent = pad(seconds);
+        document.getElementById("next-title").textContent = next.title;
+        document.getElementById("next-meta").innerHTML =
+          '<span>' + icons.map + escapeHtml(next.place) + '</span>' +
+          '<span>' + icons.alert + escapeHtml(dateAtZone(new Date(next.at), next.zone) + " · " + next.tz) + '</span>';
+
+        const deviceZone = Intl.DateTimeFormat().resolvedOptions().timeZone || "本地时区";
+        const deviceTime = dateAtZone(now, deviceZone);
+        const destinationTime = dateAtZone(now, "Indian/Antananarivo");
+        document.getElementById("current-clock").textContent =
+          "设备时间 " + deviceTime + " · 行程目的地 " + destinationTime + " EAT";
+      }
+
+      function renderWorldRoute() {
+        document.getElementById("world-route").innerHTML = `
+          <svg viewBox="0 0 960 220" role="img" aria-label="广州、内罗毕、塔那那利佛与返程广州的长航段示意">
+            <path class="route-path" d="M100 146 C250 36 376 38 484 126 C610 232 744 205 862 92"/>
+            <path class="route-path" d="M862 92 C800 30 688 27 600 65" stroke-dasharray="8 12" opacity=".65"/>
+            <g transform="translate(100 146)">
+              <circle class="route-node" r="11"/>
+              <text x="-48" y="-22">广州</text>
+              <text class="world-caption" x="-48" y="44">CAN · 起程</text>
+            </g>
+            <g transform="translate(484 126)">
+              <circle class="route-node" r="11"/>
+              <text x="-40" y="-24">内罗毕</text>
+              <text class="world-caption" x="-40" y="43">NBO · 09.18</text>
+            </g>
+            <g transform="translate(862 92)">
+              <circle class="route-node" r="11"/>
+              <text x="-54" y="-25">塔那那利佛</text>
+              <text class="world-caption" x="-54" y="44">TNR · 09.26</text>
+            </g>
+            <text class="world-caption" x="648" y="22">计划返程：TNR → DXB → DEL → CAN</text>
+          </svg>
+        `;
+      }
+
+      function renderOverviewMap() {
+        const width = 900;
+        const height = 500;
+        const minLng = 31;
+        const maxLng = 51;
+        const minLat = -25;
+        const maxLat = 10;
+        const project = (point) => ({
+          x: 78 + ((point.lng - minLng) / (maxLng - minLng)) * (width - 156),
+          y: 42 + ((maxLat - point.lat) / (maxLat - minLat)) * (height - 92)
+        });
+
+        const dayRoutes = days
+          .filter((day) => day.route && day.route.length > 1)
+          .map((day) => {
+            const points = day.route.map(project);
+            const path = points.map((point, index) => (index ? "L" : "M") + point.x.toFixed(1) + " " + point.y.toFixed(1)).join(" ");
+            return `<path class="overview-route" d="${path}" stroke="${day.color}" />`;
+          })
+          .join("");
+
+        const milestones = [
+          P.yeza, P.mara, P.merica, P.elementaita, P.amboseli, P.soanala,
+          P.palmarium, P.tana, P.morondava, P.kirindy, P.bekopaka
+        ].map((point, index) => {
+          const pos = project(point);
+          const color = palette[Math.min(index * 2, palette.length - 1)];
+          const labelY = index % 2 === 0 ? -16 : 28;
+          return `
+            <a href="${mapsSearch(point.q)}" target="_blank" rel="noopener">
+              <circle class="stay-marker" cx="${pos.x}" cy="${pos.y}" r="8" fill="${color}">
+                <title>${escapeHtml(point.name)}</title>
+              </circle>
+              <text x="${pos.x + 11}" y="${pos.y + labelY}">${escapeHtml(point.name.replace("Jacaranda Lake Elementaita Lodge", "Elementaita Lodge").replace("Palmarium Hotel Ankanin'Nofy", "Palmarium"))}</text>
+              <text class="tiny-label" x="${pos.x + 11}" y="${pos.y + labelY + 14}">${escapeHtml(point.code)}</text>
+            </a>
+          `;
+        }).join("");
+
+        document.getElementById("overview-map").innerHTML = `
+          <svg viewBox="0 0 ${width} ${height}" role="img" aria-label="肯尼亚与马达加斯加主要停留点示意地图">
+            <defs>
+              <filter id="rough">
+                <feTurbulence type="fractalNoise" baseFrequency=".012" numOctaves="2" seed="9" result="noise"/>
+                <feDisplacementMap in="SourceGraphic" in2="noise" scale="5" xChannelSelector="R" yChannelSelector="G"/>
+              </filter>
+            </defs>
+            <path class="rough-shape" d="M278 42 C335 16 398 34 432 68 C469 104 470 143 499 170 C538 206 582 215 610 252 C632 281 622 319 596 341 C568 365 544 367 531 405 C520 439 490 465 455 452 C430 443 421 416 400 390 C370 353 329 337 306 300 C282 261 285 223 267 184 C246 139 235 77 278 42 Z"/>
+            <path class="rough-shape" d="M683 325 C713 306 744 320 757 348 C771 377 760 410 743 436 C728 459 705 465 692 443 C679 420 655 345 683 325 Z"/>
+            <text x="312" y="82">肯尼亚</text>
+            <text x="688" y="315">马达加斯加</text>
+            <text class="tiny-label" x="293" y="105">Nairobi · Masai Mara · Nakuru · Amboseli</text>
+            <text class="tiny-label" x="658" y="461">Andasibe · Palmarium · Morondava · Tsingy</text>
+            ${dayRoutes}
+            ${milestones}
+          </svg>
+        `;
+      }
+
+      function renderStays() {
+        document.getElementById("stay-strip").innerHTML = stays.map((stay) => `
+          <a class="stay-item" href="${mapsSearch(stay.q)}" target="_blank" rel="noopener">
+            <span class="stay-day">D${stay.day}<br>${escapeHtml(stay.date)}</span>
+            <span>
+              <span class="stay-name">${escapeHtml(stay.name)}</span>
+              <span class="stay-note">${escapeHtml(stay.note)}</span>
+            </span>
+          </a>
+        `).join("");
+      }
+
+      function renderBookings() {
+        document.getElementById("booking-grid").innerHTML = bookings.map((group) => `
+          <article class="booking-group">
+            <h3>${icons[group.icon]} ${escapeHtml(group.group)}</h3>
+            <div class="booking-list">
+              ${group.items.map((item) => `
+                <div class="booking">
+                  <div class="booking-icon">${icons[group.icon]}</div>
+                  <div>
+                    <p class="booking-title">${escapeHtml(item.title)}</p>
+                    <div class="booking-lines">
+                      ${item.lines.map((line) => `<span>${escapeHtml(line)}</span>`).join("")}
+                    </div>
+                  </div>
+                  <div class="booking-actions">
+                    <span class="status ${item.badgeClass}">${escapeHtml(item.badge)}</span>
+                    ${item.actions.map((action) => `
+                      <a class="action-link" href="${action.href}" ${action.href.startsWith("http") ? 'target="_blank" rel="noopener"' : ""}>
+                        ${action.icon ? icons[action.icon] : icons.map}
+                        ${escapeHtml(action.label)}
+                      </a>
+                    `).join("")}
+                  </div>
+                </div>
+              `).join("")}
+            </div>
+          </article>
+        `).join("");
+      }
+
+      function renderMiniMap(day) {
+        const route = day.route || [];
+        const width = 720;
+        const height = 240;
+        const fallback = [
+          { x: 150, y: 155 },
+          { x: 320, y: 85 },
+          { x: 500, y: 148 },
+          { x: 625, y: 78 }
+        ];
+        let positions;
+
+        if (route.length > 1) {
+          const lats = route.map((point) => point.lat);
+          const lngs = route.map((point) => point.lng);
+          const minLat = Math.min(...lats);
+          const maxLat = Math.max(...lats);
+          const minLng = Math.min(...lngs);
+          const maxLng = Math.max(...lngs);
+          const xRange = Math.max(0.35, maxLng - minLng);
+          const yRange = Math.max(0.35, maxLat - minLat);
+          positions = route.map((point) => ({
+            x: 64 + ((point.lng - minLng) / xRange) * (width - 128),
+            y: 40 + ((maxLat - point.lat) / yRange) * (height - 80)
+          }));
+        } else {
+          positions = [fallback[0]];
+        }
+
+        const path = positions.map((point, index) => (index ? "L" : "M") + point.x.toFixed(1) + " " + point.y.toFixed(1)).join(" ");
+        const nodes = route.map((point, index) => {
+          const pos = positions[index];
+          const labelY = index % 2 === 0 ? -14 : 26;
+          return `
+            <a href="${mapsSearch(point.q)}" target="_blank" rel="noopener">
+              <circle cx="${pos.x}" cy="${pos.y}" r="10" fill="var(--day-color)" stroke="var(--surface)" stroke-width="4">
+                <title>${escapeHtml(point.name)}</title>
+              </circle>
+              <text text-anchor="middle" x="${pos.x}" y="${pos.y + labelY}">${escapeHtml(point.name)}</text>
+              <text class="mini-code" text-anchor="middle" x="${pos.x}" y="${pos.y + labelY + 13}">${escapeHtml(point.code)}</text>
+            </a>
+          `;
+        }).join("");
+
+        return `
+          <div class="mini-map" style="--day-color:${day.color}">
+            <svg viewBox="0 0 ${width} ${height}" role="img" aria-label="第 ${day.n} 天路线示意图">
+              <path class="mini-route-shadow" d="${path}"/>
+              <path class="mini-route" d="${path}"/>
+              ${nodes}
+            </svg>
+          </div>
+        `;
+      }
+
+      function renderDays() {
+        const today = new Date();
+        today.setHours(0, 0, 0, 0);
+        const todayTime = today.getTime();
+        let opened = false;
+        document.getElementById("timeline").innerHTML = days.map((day) => {
+          const dayDate = new Date(day.date + "T12:00:00+03:00");
+          const shouldOpen = !opened && dayDate.getTime() >= todayTime;
+          if (shouldOpen) opened = true;
+          return `
+            <article class="day">
+              <div class="day-date"><strong>DAY ${String(day.n).padStart(2, "0")}</strong>${escapeHtml(day.weekday)}<br>${escapeHtml(day.date.slice(5))}</div>
+              <details class="day-card" ${shouldOpen ? "open" : ""} style="--day-color:${day.color}">
+                <summary class="day-summary">
+                  <div>
+                    <h3 class="day-title">${escapeHtml(day.title)}</h3>
+                    <div class="day-summary-copy">${escapeHtml(day.summary)}</div>
+                  </div>
+                  <span class="day-expand" aria-hidden="true">${icons.arrow}</span>
+                </summary>
+                <div class="day-body">
+                  <div class="day-tags">
+                    ${day.tags.map((tag) => `<span class="tag ${tag.includes("风险") || tag.includes("待") || tag.includes("未定") ? "warn" : tag.includes("购票") || tag.includes("预约") ? "booking" : ""}">${escapeHtml(tag)}</span>`).join("")}
+                  </div>
+                  <div class="schedule">
+                    ${day.events.map((event) => `
+                      <div class="schedule-row">
+                        <div class="schedule-time">${escapeHtml(event.time)}<small>${escapeHtml(event.tz)}</small></div>
+                        <div>
+                          <p class="schedule-title">${escapeHtml(event.title)}</p>
+                          <p class="schedule-detail">${escapeHtml(event.detail)}</p>
+                          ${event.place ? `<a class="place-link" href="${mapsSearch(event.place.q)}" target="_blank" rel="noopener">在地图打开 ${escapeHtml(event.place.name)}</a>` : ""}
+                        </div>
+                      </div>
+                    `).join("")}
+                  </div>
+                  <details class="route-details">
+                    <summary>${icons.route} 展开当日路线地图与全天多点导航</summary>
+                    <div class="route-content">
+                      ${renderMiniMap(day)}
+                      <div class="nav-row">
+                        ${day.nav && day.nav.length > 1 ? `
+                          <a class="nav-button" href="${mapsDirections(day.nav)}" target="_blank" rel="noopener">
+                            ${icons.nav} ${escapeHtml(day.navLabel || "一键打开全天多点导航")}
+                          </a>
+                        ` : ""}
+                        ${day.nav && day.nav.length ? `
+                          <a class="nav-button secondary" href="${mapsSearch(day.nav[day.nav.length - 1].q)}" target="_blank" rel="noopener">
+                            ${icons.map} 打开终点
+                          </a>
+                        ` : ""}
+                      </div>
+                    </div>
+                  </details>
+                  <div class="day-notes">
+                    ${day.notes.map((note) => `
+                      <div class="day-note ${note.type === "warn" ? "warn" : ""}">
+                        ${note.type === "warn" ? icons.alert : icons.info}
+                        <span>${escapeHtml(note.text)}</span>
+                      </div>
+                    `).join("")}
+                  </div>
+                </div>
+              </details>
+            </article>
+          `;
+        }).join("");
+      }
+
+      function renderTodos() {
+        document.getElementById("todo-list").innerHTML = todos.map((item) => `
+          <li>
+            <div>
+              <span class="todo-title">${escapeHtml(item.title)}${item.priority ? `<span class="todo-priority">${escapeHtml(item.priority)}</span>` : ""}</span>
+              <span class="todo-detail">${escapeHtml(item.detail)}</span>
+            </div>
+          </li>
+        `).join("");
+      }
+
+      function renderTips() {
+        document.getElementById("tips-grid").innerHTML = tips.map((tip) => `
+          <article class="tip-block">
+            <h3>${escapeHtml(tip.title)}</h3>
+            <ul>${tip.items.map((item) => `<li>${item}</li>`).join("")}</ul>
+          </article>
+        `).join("");
+      }
+
+      renderWorldRoute();
+      renderOverviewMap();
+      renderStays();
+      renderBookings();
+      renderDays();
+      renderTodos();
+      renderTips();
+      updateCountdown();
+      window.setInterval(updateCountdown, 1000);
+    })();
+  </script>
+</body>
+</html>
